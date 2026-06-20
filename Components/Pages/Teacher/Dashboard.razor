@@ -1,0 +1,81 @@
+@page "/tdashboard"
+@using Components.Layout.Teacher
+@inject NavigationManager Nav
+
+@layout TeacherMainLayout
+
+<div class="pd-5 bg-primary-01 main-container">
+    <div class="mgb-10">
+        <h2>Welcome, Mr Johnson 🖐️</h2>
+        <p>Manage your classes and enter students score.</p>
+    </div>
+
+    <div class="row responsive col-3 mgb-10">
+        <div class="miwx-25">
+            <StatCard Title="4" Subtitle="Assigned Classes" ImgPng="icons/chart.svg" />
+        </div>
+        <div class="miwx-25">
+            <StatCard Title="3" Subtitle="Subjects" ImgPng="icons/reportcard.svg" />
+        </div>
+        <div class="miwx-25">
+            <StatCard Title="89" Subtitle="Pending Submission" ImgPng="icons/task.svg" />
+        </div>
+    </div>
+
+    <div class="corner-3 bg-white pd bd">
+        <div class="wf scroll-x">
+            <table class="fsz-20 wf scroll">
+                <tbody>
+                    <tr class="">
+                        <td class="pd-5 bdb bdb-gray">JSS 1A</td>
+                        <td class="pd-5 bdb bdb-gray">35 Students</td>
+                        <td class="pd-5 bdb bdb-gray">
+                            <button class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
+                        </td>
+                    </tr>
+                    <tr class="pdt-3 pdb-3 bdb bdb-gray">
+                        <td class="pd-5 bdb bdb-gray">JSS 2A</td>
+                        <td class="pd-5 bdb bdb-gray">24 Students</td>
+                        <td class="pd-5 bdb bdb-gray">
+                            <button class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
+                        </td>
+                    </tr>
+                    <tr class="pdt-3 pdb-3 bdb bdb-gray">
+                        <td class="pd-5 bdb bdb-gray">JSS 3A</td>
+                        <td class="pd-5 bdb bdb-gray">37 Students</td>
+                        <td class="pd-5 bdb bdb-gray">
+                            <button class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
+                        </td>
+                    </tr>
+                    <tr class="pdt-3 pdb-3 bdb bdb-gray">
+                        <td class="pd-5 bdb bdb-gray">SS 1 Science</td>
+                        <td class="pd-5 bdb bdb-gray">36 Students</td>
+                        <td class="pd-5 bdb bdb-gray">
+                            <button class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+    <div class="wf cl-white mgt-5">
+        <button @onclick="GoToScoreEntry" class="wf bg-primary cl-wite fw-bold fsz-20 bd-none pd-5 corner-3">Go to Score
+            Entry</button>
+        </div>
+    </div>
+
+@code {
+
+    private void ViewStudent()
+    {
+
+    }
+
+    private void GoToScoreEntry()
+    {
+        Nav.NavigateTo("/scoreentry");
+    }
+}

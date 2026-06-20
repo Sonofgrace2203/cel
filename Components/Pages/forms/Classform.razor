@@ -1,0 +1,92 @@
+@* @page "/classform" *@
+@inject NavigationManager Nav
+
+<div class="form">
+    <div class="flex flow pd-5 bg-white">
+        <div>
+            <div class="grid col-2 bd pd">
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="classname" class="mg-2 fsz-15">Class Name</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Class Name</option>
+                            <option value="JSS 1 A">JSS 1 A</option>
+                            <option value="JSS 2 B">JSS 2 B</option>
+                            <option value="JSS 3 C">JSS 3 C</option>
+                            <option value="SS 1 A">SS 1 A</option>
+                        </select>
+                    </div>
+                    <p class="mg-2 cl-fatal">studentnoError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="level" class="mg-2 fsz-15">Level</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Level</option>
+                            <option value="JSS 1">JSS 1</option>
+                            <option value="JSS 2">JSS 2</option>
+                            <option value="JSS 3">JSS 3</option>
+                            <option value="SS 1">SS 1</option>
+                        </select>
+                    </div>
+                    <p class="mg-2 cl-fatal">studentnoError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="arm" class="mg-2 fsz-15">Arm</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Arm</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                    </div>
+                    <p class="mg-2 cl-fatal">studentnoError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="studentno" class="mg-2 fsz-15">Student No</label>
+                        <input type="number" placeholder="Enter number of student..."
+                               class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">studentnoError</p>
+                </div>
+                <div class="mg-3">
+                    <div class="stack">
+                        <label for="classteacher" class="mg-2 fsz-15">Class Teacher</label>
+                        <input type="text" placeholder="Enter class teacher name..."
+                               class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">classTeacherError</p>
+                </div>
+            </div>
+
+            <div class="wf fsz-20 mgt-10 flex flex-spacebetween flow">
+                <div></div>
+                <div>
+                    <button @onclick="HandleCancel"
+                            class="pdl-10 pdr-10 pdt-5 pdb-5 cl-primary bd-none bd bg-transparent bd-primary corner-2 fsz-20 mgb-5">Cancel</button>
+                    <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bg-primary corner-2 fsz-20"
+                            @onclick="HandleAdd">Save
+                        Class</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@code {
+    [Parameter] public EventCallback OnCancel { get; set; }
+    [Parameter] public EventCallback OnAdd { get; set; }
+
+    private void HandleCancel()
+    {
+        OnCancel.InvokeAsync();
+    }
+
+    private void HandleAdd()
+    {
+        OnAdd.InvokeAsync();
+    }
+}

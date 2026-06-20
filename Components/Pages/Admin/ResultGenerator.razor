@@ -1,0 +1,68 @@
+@page "/results"
+@using Components.Layout.Admin
+
+@layout AdminMainLayout
+
+
+<div class="pd-10">
+    <div class="flex flow flex-start">
+        <div class="">
+            <div class="flex mgb-10 mgr-5">
+                <div class="bg-success round wx-01 flex align-center hx-01 pd-5 cl-white shadow-02 mgr-10">
+                    <p class="mgt--1">✔</p>
+                </div>
+                <div class="">
+                    <h2 class="cl-success mg-0">Validate Scores</h2>
+                    <p class="mg-2 fsz-20">All Scores are valid.</p>
+                </div>
+            </div>
+
+            <div class="flex mgb-10">
+                <div class="bg-success round wx-01 flex align-center hx-01 pd-5 cl-white shadow-02 mgr-10">
+                    <p class="mgt--1">✔</p>
+                </div>
+                <div class="">
+                    <h2 class="cl-success mg-0">Compute Grades</h2>
+                    <p class="mg-2 fsz-20">Grades have been computed.</p>
+                </div>
+            </div>
+
+            <div class="flex mgb-10">
+                <div class="bg-success round wx-01 flex align-center hx-01 pd-5 cl-white shadow-02 mgr-10">
+                    <p class="mgt--1">✔</p>
+                </div>
+                <div class="">
+                    <h2 class="cl-success mg-0">Calculate Positions</h2>
+                    <p class="mg-2 fsz-20">Class positions calculated</p>
+                </div>
+            </div>
+
+            <div class="flex mgb-10">
+                <div class="bg-success round wx-01 flex align-center hx-01 pd-5 cl-white shadow-02 mgr-10">
+                    <p class="mgt--1">✔</p>
+                </div>
+                <div class="">
+                    <h2 class="cl-success mg-0">Generate Pdf</h2>
+                    <p class="mg-2 fsz-20">Pdf report sheet generated successfully.</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <img src="report.png" alt="" class="wx-3 hx-3">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pd-10 bg-success-04 corner-3">
+        <h3>Result generated successfully!</h3>
+        <p>You can preview the result before publishing</p>
+    </div>
+
+    <div class="mgt-10">
+        <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-success bd-none bd bg-transparent bd-success corner-2 fsz-25 mgb-5">Preview Result</button>
+        <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bg-success corner-2 fsz-25">Publish Result</button>
+    </div>
+</div>

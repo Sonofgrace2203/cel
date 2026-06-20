@@ -1,0 +1,122 @@
+@page "/result"
+@using Components.Layout.Admin
+@inject NavigationManager Nav
+
+@layout AdminMainLayout
+
+
+<div class="bg-white wx-8 pd-3 pos-rel">
+    <button class="pd-3 mdi mdi-cancel pos-abs r-0 t-0 bd-none fsz-30 fw-bold" @onclick="HandleCancel"></button>
+    <h3>Send Result to Parent / Guardian</h3>
+
+    <div class="flex flex-start pd-3">
+        <div class="mgr-5 pd-5 bd">
+            <div class="flex corner-3">
+                <div class="">
+                    <div class="flex mgb">
+                        <div class="round bg-primary-01 wx-15 hx-15 mgr-5"></div>
+                        <div class="text-left fsz-15 mgt-9">
+                            <p class="mg-2">Student</p>
+                            <h3 class="mg-2">Ahmed Musa</h3>
+                            <p class="mg-2">JSS 1 A</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <p>Parent / Guardian</p>
+                <h3 class="">Mr Adewunmi Musa</h3>
+                <div class="flex align-cente fsz-25">
+                    <div class="flex align mgr-20">
+                        <i class="mdi mdi-phone mgr-5"></i>
+                        <p class="mgt--1">080123456789</p>
+                    </div>
+                    <i class="mdi mdi-whatsapp cl-success"></i>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="mgt-10">
+            <h3 class="mg-0">Message Preview</h3>
+            <hr />
+            <div class="pd-4 bg-primary-01 fsz-20">
+                <p class="mgb-15">Hello Mr Adewale, <br /> Your ward Ahmed's Musa result for first term is ready.</p>
+
+                <p>Kindly find the report sheet attached.</p>
+
+                <p>Best Regards, <br /> GreenWood High School</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mgt-10">
+        <div class="flex flex-spacebetween">
+            <h3 class="mg-0">Attach PDF</h3>
+            <button class="pdl-5 pdr-5 pdt-2 pdb-2 bg-primary cl-white bd-none corner-1"
+                    @onclick="Preview">Preview Result</button>
+        </div>
+        <hr />
+        <div class="pd-5 corner-3 bg-primary-01 flex flex-spacebetween">
+            <div class="flex">
+                <div class="fsz-40 flex align-items mgt-8">
+                    <i class="mdi mdi-file mgr-3 cl-primary"></i>
+                </div>
+                <div>
+                    <h3>Ahmed_Musa_Result.pdf</h3>
+                    <p>(245 MB)</p>
+                </div>
+            </div>
+
+            <div class="flex align-center mgt-5 fsz-17">
+                <div class="flex">
+                    <p class="10px mgr-5">245kb</p>
+                    <i class="mdi mdi-cancel cl-fatal mgt-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mgt-5">
+        <button class="pd-3 wf bg-success fsz-25 bd-none">
+            <i class="cl-white mdi mdi-whatsapp"></i>
+            Send via Whatsapp
+        </button>
+    </div>
+</div>
+
+ @if (previewResult)
+    {
+        <div class="formpage">
+            <PdfPreview OnCancel="Cancel" />
+        </div>
+    }
+
+@code {
+    [Parameter] public EventCallback OnCancel { get; set; }
+    @* [Parameter] public EventCallback OnPreview { get; set; } *@
+
+    private bool previewResult = true;
+
+    private void ShowModal()
+    {
+        previewResult = !previewResult;
+    }
+
+    private void Preview()
+    {
+        previewResult = true;
+    }
+
+    private void Cancel()
+    {
+        previewResult = false;
+    }
+
+    private void HandleCancel()
+    {
+        OnCancel.InvokeAsync();
+    }
+}

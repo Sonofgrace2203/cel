@@ -1,0 +1,84 @@
+html:not(.dark-theme):root {
+  --primary-background-color: 37, 95, 235 !important;
+  --success-background-color: 22, 163, 74 !important;
+  --warning-background-color: 245, 158, 11 !important;
+  --error-background-color: 239, 68, 68 !important;
+  --gray-background-color: 248, 250, 252 !important;
+}
+
+.pagbutton:hover {
+    background: rgb(var(--primary-background-color));
+    color: white;
+    transition: 0.3 ease-in-out;
+}
+
+.pagbutton:focus {
+    background: rgb(var(--primary-background-color));
+    color: white;
+    transition: 0.3 ease-in-out;
+}
+
+.delbutton {
+    color: rgb(var(--error-background-color));
+}
+
+.editbutton {
+    color: rgb(var(--primary-background-color));
+}
+
+.sendbutton {
+    color: rgb(var(--success-background-color));
+}
+
+.actbtn:hover {
+    background: rgb(var(--primary-background-color));
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    color: white;
+}
+.actbtn:focus {
+    background: rgb(var(--primary-background-color));
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    color: white;
+}
+
+/* .main-container {
+    height: 100vh;
+} */
+
+button {
+    cursor: pointer;
+}
+
+.cardani:hover {
+    background: rgb(255, 255, 255, 0.5);
+    padding: 20px;
+    transition: 0.3s ease-out;
+    border-top: 3px solid rgb(22, 163, 74) ;
+}
+
+.buttonani:hover {
+    background: rgb(255, 255, 255, 0.5);
+    transition: 0.3s ease-out;
+}
+
+.formpage {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+.formpage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}

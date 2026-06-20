@@ -1,0 +1,17 @@
+<div style="" class="pd-15 pdb-0 bd bdr bg-white corner-3 mgr-5 mgb-5 cardani">
+    <div class="flex flex-spacebetween">
+        <div>
+            <h1 class="mgb-10">@Title</h1>
+            <p class="fsz-20">@Subtitle</p>
+        </div>
+        <div>
+            <img src="@ImgPng" alt=" " class="wx-07 hx-07">
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int Title { get; set; }
+    [Parameter] public string ImgPng { get; set; } = "";
+    [Parameter] public string Subtitle { get; set; } = "";
+}

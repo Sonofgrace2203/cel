@@ -1,0 +1,71 @@
+@page "/subjectform"
+@inject NavigationManager Nav
+
+<div class="form">
+    <div class="flex flow pd-5 bg-white">
+        <div>
+            <div class="grid col-2 bd pd">
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="subjectname" class="mg-2 fsz-15">Subject Name</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Subject</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Mathematics">English</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Economics">Economics</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="subjectcode" class="mg-2 fsz-15">Subject Code</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Code</option>
+                            <option value="MTH001">MTH001</option>
+                            <option value="ENG001">ENG001</option>
+                            <option value="BIO001">BIO001</option>
+                            <option value="ECO001">ECO001</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="type" class="mg-2 fsz-15">Type</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Type</option>
+                            <option value="Core">Core</option>
+                            <option value="Elective">Elective</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wf fsz-20 mgt-10 flex flex-spacebetween flow">
+                <div></div>
+                <div>
+                    <button @onclick="HandleCancel"
+                            class="pdl-10 pdr-10 pdt-5 pdb-5 cl-primary bd-none bd bg-transparent bd-primary corner-2 fsz-20 mgb-5">Cancel</button>
+                    <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bg-primary corner-2 fsz-20"
+                            @onclick="HandleAdd">Save
+                        Subject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@code {
+    [Parameter] public EventCallback OnCancel { get; set; }
+    [Parameter] public EventCallback OnAdd { get; set; }
+
+    private void HandleCancel()
+    {
+        OnCancel.InvokeAsync();
+    }
+
+    private void HandleAdd()
+    {
+        OnAdd.InvokeAsync();
+    }
+}

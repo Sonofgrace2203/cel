@@ -1,0 +1,27 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="bg-primary wx-3 pd-3 navheight">
+        <TeacherNavMenu />
+    </div>
+
+    <main class="navheight scroll">
+        <div class="top-row px-4 fsz-25 bg-primary-05">
+            <div class="pos-rel mgr-5">
+                <i class="mdi mdi-bell"></i>
+                <div class="round wx-01 hx-01 bg-fatal pos-abs t-0"></div>
+            </div>
+            <p class="fsz-18 fw-bold">Mr John</p>
+        </div>
+
+        <article class="content px-4 body-content">
+            @Body
+        </article>
+    </main>
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>

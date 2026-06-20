@@ -1,0 +1,115 @@
+@page "/teacherform"
+@inject NavigationManager Nav
+
+<div class="form">
+    <div class="flex flow pd-5 bg-white">
+        <div class="flex align mgr-5">
+            <div class="hx-2 wx-2 bg-gray round mgb-5">
+            </div>
+        </div>
+        <div>
+            <div class="grid col-2 bd pd">
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="title" class="mg-2 fsz-15">Title</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Title</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Master">Master</option>
+                            <option value="Miss">Miss</option>
+                        </select>
+                    </div>
+                    <p class="mg-2 cl-fatal">titleError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="firstname" class="mg-2 fsz-15">First Name</label>
+                        <input type="text" placeholder="Enter first name..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">firstNameError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="lastname" class="mg-2 fsz-15">Last Name</label>
+                        <input type="text" placeholder="Enter last name..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">lastNameError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="idNo" class="mg-2 fsz-15">Id No</label>
+                        <input type="text" placeholder="Enter id no..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">idError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="classasign" class="mg-2 fsz-15">Class Assigned</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Class</option>
+                            <option value="JSS 1">JSS 1</option>
+                            <option value="JSS 2">JSS 2</option>
+                            <option value="JSS 3">JSS 3</option>
+                            <option value="SS 1">SS 1</option>
+                        </select>
+                    </div>
+                    <p class="mg-2 cl-fatal">classassignError</p>
+                </div>
+                <div class="mg-3">
+                    <div class="stack">
+                        <label for="subjecttaught" class="mg-2 fsz-15">Subject Taught</label>
+                        <select name="" id="" multiple class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Select Subjects</option>
+                            <option value="Male" class="pd">Mathematics</option>
+                            <option value="Female" class="pd">English</option>
+                            <option value="Female" class="pd">Biology</option>
+                            <option value="Female" class="pd">Physics</option>
+                            <option value="Female" class="pd">Chemistry</option>
+                        </select>
+                    </div>
+                    <p class="mg-2 cl-fatal">subjecttaughtError</p>
+                </div>
+                <div class="mg-3">
+                    <div class="stack">
+                        <label for="phone" class="mg-2 fsz-15">Phone / Whatsapp</label>
+                        <input type="number" placeholder="Enter phone number..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">phoneError</p>
+                </div>
+                <div class="mg-3 wf">
+                    <div class="stack">
+                        <label for="address" class="mg-2 fsz-15">Address</label>
+                        <input type="text" placeholder="Enter address..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">addressError</p>
+                </div>
+            </div>
+
+            <div class="wf fsz-20 mgt-10 flex flex-spacebetween flow">
+                <div></div>
+                <div>
+                    <button @onclick="HandleCancel"
+                    class="pdl-10 pdr-10 pdt-5 pdb-5 cl-primary bd-none bd bg-transparent bd-primary corner-2 fsz-20 mgb-5">Cancel</button>
+                    <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bg-primary corner-2 fsz-20" @onclick="HandleAdd">Save
+                        Teacher</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@code {
+    [Parameter] public EventCallback OnCancel { get; set; }
+    [Parameter] public EventCallback OnAdd { get; set; }
+
+    private void HandleCancel()
+    {
+        OnCancel.InvokeAsync();
+    }
+
+    private void HandleAdd()
+    {
+        OnAdd.InvokeAsync();
+    }
+}

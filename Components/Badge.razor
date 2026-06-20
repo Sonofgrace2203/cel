@@ -1,0 +1,10 @@
+@using System.Drawing
+<div style="background: @BgColor; color: @ClColor;" class="pdt-2 pdb-2 pdl-2 pdr-2 text-center wx-15 corner-3">
+    @Text
+</div>
+
+@code {
+    [Parameter] public string BgColor { get; set; } = "";
+    [Parameter] public string ClColor { get; set; } = "";
+    [Parameter] public string Text { get; set; } = "";
+}

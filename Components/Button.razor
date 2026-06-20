@@ -1,0 +1,17 @@
+<button style="background: @BgColor; color: @ClColor" class="bd-1 pdt-3 pdb-3 pdl-10 pdr-10 bd-none mg-2 corner-2 bg-primary-01 fsz-18 button" @onclick="HandleClick">
+    <span class="mgr-2">@BtnIcon</span>
+    <span>@BtnText</span>
+</button>
+
+@code {
+    [Parameter] public string BgColor { get; set; } = "";
+    [Parameter] public string ClColor { get; set; } = "";
+    [Parameter] public string BtnText { get; set; } = "";
+    [Parameter] public string BtnIcon { get; set; } = "";
+    [Parameter] public EventCallback OnClick { get; set; }
+
+    public async Task HandleClick()
+    {
+        await OnClick.InvokeAsync();
+    }
+}

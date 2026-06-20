@@ -1,0 +1,115 @@
+@page "/pdfpreview"
+@inject NavigationManager Nav
+
+<div class="resultpreview">
+    <div class="scroll bg-white">
+        <div class="pd-10 pos-rel bg-white">
+            <button class="pd-3 mdi mdi-cancel pos-abs r-0 t-0 bd-none fsz-30 fw-bold" @onclick="HandleCancel"></button>
+            <div class="flex wf">
+                <div class="wx-1 hx-1 bg-primary-01 mgr-5 round">
+                    <img src="" alt="">
+                </div>
+                <div class="fw-bold mgt-5">
+                    <h3 class="mg-3">GREENWOOD HIGH SCHOOL</h3>
+                    <p class="cl-primary mg-3">FIRST TERM REPORT SHEET</p>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="mgr-10 fsz-20">
+                    <p class="mgr-10">Student Name:</p>
+                    <p class="mgr-10">Admission No:</p>
+                    <p class="mgr-10">Class:</p>
+                    <p class="mgr-10">Term:</p>
+                    <p class="mgr-10">Position:</p>
+                </div>
+
+                <div class="fsz-20">
+                    <p class="fw-bold">Ahmed Musa</p>
+                    <p class="fw-bold">BMW100015</p>
+                    <p class="fw-bold">JSS 1 A</p>
+                    <p class="fw-bold">First Term</p>
+                    <p class="fw-bold">2nd</p>
+                </div>
+            </div>
+
+            <div class="wx-8">
+                <table class="wf bd">
+                    <thead>
+                        <tr class="fw-bold">
+                            <td class="pd-5 bg-primary-01 bd text-center">SUBJECT</td>
+                            <td class="pd-5 bg-primary-01 bd text-center">SCORE</td>
+                            <td class="pd-5 bg-primary-01 bd text-center">GRADE</td>
+                            <td class="pd-5 bg-primary-01 bd text-center">REMARK</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pd-5 bd">Mathematics</td>
+                            <td class="pd-5 bd text-center">90</td>
+                            <td class="pd-5 bd text-center">A</td>
+                            <td class="pd-5 bd text-center">Excellent</td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 bd">Mathematics</td>
+                            <td class="pd-5 bd text-center">90</td>
+                            <td class="pd-5 bd text-center">A</td>
+                            <td class="pd-5 bd text-center">Excellent</td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 bd">Mathematics</td>
+                            <td class="pd-5 bd text-center">90</td>
+                            <td class="pd-5 bd text-center">A</td>
+                            <td class="pd-5 bd text-center">Excellent</td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 bd">Mathematics</td>
+                            <td class="pd-5 bd text-center">90</td>
+                            <td class="pd-5 bd text-center">A</td>
+                            <td class="pd-5 bd text-center">Excellent</td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 bd">Mathematics</td>
+                            <td class="pd-5 bd text-center">90</td>
+                            <td class="pd-5 bd text-center">A</td>
+                            <td class="pd-5 bd text-center">Excellent</td>
+                        </tr>
+                        <tr>
+                            <tr>
+                                <td class="pd-5 bg-primary-01 bd">Total</td>
+                                <td class="pd-5 bg-primary-01 bd text-center">400</td>
+                                <td class="pd-5 bd text-center">A</td>
+                            </tr>
+                            <td class="pd-5 bg-primary-01 bd">Average</td>
+                            <td class="pd-5 bg-primary-01 bd text-center">89.7</td>
+                            <td class="pd-5 bd text-center">A</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pd mgt-3 wf">
+                    <div class="flex">
+                        <div class="mgr-20 fsz-18 flex">
+                            <p class="mgr-5 fsz-15">Class Teacher</p>
+                            <p>__________________________</p>
+                        </div>
+
+                        <div class="fsz-18 flex">
+                            <p class="mgr-5 fsz-15">Principal</p>
+                            <p>__________________________</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private void HandleCancel()
+    {
+        OnCancel.InvokeAsync();
+    }
+}

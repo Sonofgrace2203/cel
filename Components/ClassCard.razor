@@ -1,0 +1,23 @@
+<div class="pd-10 bdb bdb-primary scroll-x">
+    <table class="wf fw-bold  scroll">
+        <tr class="scroll">
+            <td class="wx-5">@Class</td>
+            <td class="pdr-10">@StudentNo</td>
+            <td>
+                <button class="cl-primary bg-transparent bd-none" @onclick="HandleClick">@BtnText</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+@code {
+    [Parameter] public string Class { get; set; } = "";
+    [Parameter] public string StudentNo { get; set; } = "";
+    [Parameter] public string BtnText { get; set; } = "";
+    [Parameter] public EventCallback OnClick { get; set; }
+
+    public async Task HandleClick()
+    {
+        await OnClick.InvokeAsync();
+    }
+}
