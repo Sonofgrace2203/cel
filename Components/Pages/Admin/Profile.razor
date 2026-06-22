@@ -1,0 +1,179 @@
+@page "/profile"
+@using Components.Layout.Admin
+@using cel.Components.Pages.forms
+@inject NavigationManager Nav
+
+@layout AdminMainLayout
+
+
+<div class="pd-5 bg-primary-01 main-container">
+    <div class="mgb-10 flex flex-spacebetween">
+        <div>
+            <h2>Settings</h2>
+            <p>Manage syour personal information and account settings</p>
+        </div>
+    </div>
+
+    <div class="flex">
+        <div class="wx-3 pd-5 bg-card wx-3 corner-2 flex flex-center stack mgr-5">
+            <div class="wx-3 flex flex-center stack">
+                <div class="wx-2 hx-2 round bg-primary-01"></div>
+                <h2 class="mgb-10">Mr Adeola Oseni</h2>
+                <div class="mgb-10">
+                    <Badge BgColor="rgb(37, 95, 235, 0.2)" ClColor="rgb(37, 95, 235)" BdColor="rgb(37, 95, 235)"
+                           Text="Administrator" />
+                </div>
+                <button
+                    class="mgb-10 bg-primary-01 bd bd-primary cl-primary pdt-5 pdb-5 pdl-20 pdr-20 corner-1 bd-none fsz-18 fw-bold">
+                    Change Photo</button>
+                </div>
+
+                <div class="flex flex-start bdt wf pdt-8 pdb-8 pdl-0 fsz-20">
+                    <i class="mdi mdi-calendar fsz-25 mgr-5"></i>
+                    <div>
+                        <h5 class="mg-0 pd-0">Members since</h5>
+                        <em class="mg-0 pd-0">May 12th 2026</em>
+                    </div>
+                </div>
+
+                <div class="flex flex-start bdt wf pdt-8 pdb-8 pdl-0 fsz-20">
+                    <div class="wx-01 hx-01 mgr-5 mgt-3 bg-success round"></div>
+                    <div>
+                        <h5 class="mg-0 pd-0">Last Login</h5>
+                        <em class="mg-0 pd-0">May 12th 2026, 10:55 AM</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wf bg-white pd-5 corner-2">
+                <div class="mgb-10 flex flex-spacebetween">
+                    <h2>Personal Informations</h2>
+                    <div class="bg-primary corner-3 flex align-center">
+                        <button @onclick="ShowModal"
+                            class="bg-primary cl-white pdt-2 pdb-2 pdl-20 pdr-20 corner-2 bd-none fsz-18 fw-bold buttonani">Edit
+                        </button>
+                    </div>
+                </div>
+                <div class="wf scroll-x">
+                    <table class="fsz-20 wf scroll">
+                        <tbody>
+                            <tr>
+                                <td class="pd-10 wx-3 bdt flex">
+                                    <i class="mdi mdi-human mgr-5"></i>
+                                    <p class="mg-0">Full Name</p>
+                                </td>
+                                <td class="pd-10 wx-3 bdt">Adeola Oseni</td>
+                            </tr>
+                            <tr>
+                                <td class="pd-10 wx-3 bdt flex">
+                                    <i class="mdi mdi-email mgr-5"></i>
+                                    <p class="mg-0">Email Address</p>
+                                </td>
+                                <td class="pd-10 wx-3 bdt">adeola@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="pd-10 wx-3 bdt flex">
+                                    <i class="mdi mdi-phone mgr-5"></i>
+                                    <p class="mg-0">Phone Number</p>
+                                </td>
+                                <td class="pd-10 wx-3 bdt">+2345678901234</td>
+                            </tr>
+                            <tr>
+                                <td class="pd-10 wx-3 bdt flex">
+                                    <i class="mdi mdi-star-outline mgr-5"></i>
+                                    <p class="mg-0">Role</p>
+                                </td>
+                                <td class="pd-10 wx-3 bdt">Administrator</td>
+                            </tr>
+                            <tr>
+                                <td class="pd-10 wx-3 bdt flex">
+                                    <i class="mdi mdi-identifier mgr-5"></i>
+                                    <p class="mg-0">Staff ID</p>
+                                </td>
+                                <td class="pd-10 wx-3 bdt">AAM-001</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="wf scroll">
+                        <div class="mgb-10 flex flex-spacebetween">
+                            <h2 class="mgb-0">Security</h2>
+                            <div class="bg-primary corner-3 flex align-center">
+                            </div>
+                        </div>
+
+                        <table class="fsz-20 wf scroll">
+                            <tbody>
+                                <tr>
+                                    <td class="pd-10 wx-3 bdt flex">
+                                        <i class="mdi mdi-padlock mgr-5"></i>
+                                        <div>
+                                            <h3 class="mg-0">Password</h3>
+                                            <p class="mg-0 fsz-15">Last changed 2 months ago</p>
+                                        </div>
+                                    </td>
+                                    <td class="pd-10 wx-3 bdt">
+                                        <button @onclick="ChangePassword"
+                                            class="mgb-10 bg-primary-01 bd bd-primary cl-primary pdt-5 pdb-5 pdl-20 pdr-20 corner-1 bd-none fsz-18 fw-bold">
+                                            Change Password</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (showModal)
+        {
+            <div class="formpage">
+                <Profileform OnCancel="Cancel" OnAdd="ConfirmProfileUpdate" />
+            </div>
+        }
+
+        @if (changePassword)
+        {
+            <div class="formpage">
+                <Passwordform OnCancel="CancelNewPassword" OnAdd="ConfirmNewPassword" />
+            </div>
+        }
+
+
+@code {
+    private bool showModal = false;
+    private bool changePassword = false;
+
+    
+    private void ShowModal()
+    {
+        showModal = !showModal;
+    }
+
+    private void Cancel()
+    {
+        showModal = false;
+    }
+
+    private void ConfirmProfileUpdate()
+    {
+        showModal = false;
+    }
+
+    private void ChangePassword()
+    {
+        changePassword = !changePassword;
+    }
+
+    private void CancelNewPassword()
+    {
+        changePassword = false;
+    }
+
+    private void ConfirmNewPassword()
+    {
+        changePassword = false;
+    }
+}

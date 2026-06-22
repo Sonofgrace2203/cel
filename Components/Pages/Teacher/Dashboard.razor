@@ -30,28 +30,28 @@
                         <td class="pd-5 bdb bdb-gray">JSS 1A</td>
                         <td class="pd-5 bdb bdb-gray">35 Students</td>
                         <td class="pd-5 bdb bdb-gray">
-                            <button class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
+                            <button @onclick="ViewStudents" class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
                         </td>
                     </tr>
                     <tr class="pdt-3 pdb-3 bdb bdb-gray">
                         <td class="pd-5 bdb bdb-gray">JSS 2A</td>
                         <td class="pd-5 bdb bdb-gray">24 Students</td>
                         <td class="pd-5 bdb bdb-gray">
-                            <button class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
+                            <button @onclick="ViewStudents" class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
                         </td>
                     </tr>
                     <tr class="pdt-3 pdb-3 bdb bdb-gray">
                         <td class="pd-5 bdb bdb-gray">JSS 3A</td>
                         <td class="pd-5 bdb bdb-gray">37 Students</td>
                         <td class="pd-5 bdb bdb-gray">
-                            <button class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
+                            <button @onclick="ViewStudents" class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
                         </td>
                     </tr>
                     <tr class="pdt-3 pdb-3 bdb bdb-gray">
                         <td class="pd-5 bdb bdb-gray">SS 1 Science</td>
                         <td class="pd-5 bdb bdb-gray">36 Students</td>
                         <td class="pd-5 bdb bdb-gray">
-                            <button class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
+                            <button @onclick="ViewStudents" class="mgr-5 bg-transparent bd-none editbutton fsz-20">View</button>
                         </td>
                     </tr>
                 </tbody>
@@ -59,19 +59,30 @@
         </div>
     </div>
 
-    
-
     <div class="wf cl-white mgt-5">
         <button @onclick="GoToScoreEntry" class="wf bg-primary cl-wite fw-bold fsz-20 bd-none pd-5 corner-3">Go to Score
             Entry</button>
         </div>
     </div>
 
-@code {
-
-    private void ViewStudent()
+    @if (viewStudents)
     {
+        <div class="formpage">
+            <ViewStudent OnCancel="CancelViewStudents" />
+        </div>
+    }
 
+@code {
+    private bool viewStudents = false;
+
+    private void ViewStudents()
+    {
+        viewStudents = true;
+    }
+
+    private void CancelViewStudents()
+    {
+        viewStudents = false;
     }
 
     private void GoToScoreEntry()

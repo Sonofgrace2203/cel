@@ -1,4 +1,7 @@
-﻿<div class="wx-3">
+﻿@inject NavigationManager Nav
+
+
+<div class="wx-3">
     <div class="top-row ps-3 navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="">cel</a>
@@ -64,18 +67,55 @@
             </div>
 
             <div class="nav-item px-3">
+                <NavLink class="nav-link navlink2" href="users">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Users
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link navlink2" href="profile">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Profile
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
                 <NavLink class="nav-link navlink2" href="settings">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Settings
                 </NavLink>
             </div>
 
             <div class="nav-item px-3">
-                <NavLink class="nav-link navlink2" href="users">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Users
-                </NavLink>
+                <button class="nav-link navlink2" @onclick="ShowLogout">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Logout
+                </button>
             </div>
         </nav>
     </div>
-
-
 </div>
+
+@if (ifLogout)
+    {
+        <div class="formpage">
+            <DeleteModal ModalText="Confirm to Logout" ConfirmDelete="ConfirmLogout" ConfirmCancel="CancelLogout" />
+        </div>
+    }
+
+@code {
+    private bool ifLogout = false;
+
+    private void ShowLogout()
+    {
+        ifLogout = !ifLogout;
+    }
+
+    private void ConfirmLogout()
+    {
+        ifLogout = true;
+        Nav.NavigateTo("/");
+    }
+
+    private void CancelLogout()
+    {
+        ifLogout = false;
+    }
+}

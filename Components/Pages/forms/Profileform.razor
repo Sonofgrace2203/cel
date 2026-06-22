@@ -1,0 +1,66 @@
+<div class="form">
+    <div class="flex flow pd-5 bg-white">
+        <div class="flex align mgr-5 mgt-30">
+            <div class="hx-2 wx-2 bg-gray round mgb-5">
+            </div>
+        </div>
+        <div>
+            <h2 class="pd">Update Personal information</h2>
+            <div class="grid col-2 bd pd">
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="firstname" class="mg-2 fsz-15">First Name</label>
+                        <input type="text" placeholder="Enter first name..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">firstnameError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="lastname" class="mg-2 fsz-15">Last Name</label>
+                        <input type="text" placeholder="Enter last name..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">lastnameError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="email" class="mg-2 fsz-15">Email</label>
+                        <input type="email" placeholder="Enter email address..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">idError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="phone" class="mg-2 fsz-15">Phone Number</label>
+                        <input type="number" placeholder="Enter phone number..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">idError</p>
+                </div>
+            </div>
+
+            <div class="wf fsz-20 mgt-10 flex flex-spacebetween flow">
+                <div></div>
+                <div>
+                    <button @onclick="HandleCancel"
+                    class="pdl-10 pdr-10 pdt-5 pdb-5 cl-primary bd-none bd bg-transparent bd-primary corner-2 fsz-20 mgb-5">Cancel</button>
+                    <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bg-primary corner-2 fsz-20" @onclick="HandleAdd">Update Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@code {
+    [Parameter] public EventCallback OnCancel { get; set; }
+    [Parameter] public EventCallback OnAdd { get; set; }
+
+    private void HandleCancel()
+    {
+        OnCancel.InvokeAsync();
+    }
+
+    private void HandleAdd()
+    {
+        OnAdd.InvokeAsync();
+    }
+}

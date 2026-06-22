@@ -1,0 +1,70 @@
+@page "/myclasses"
+@using Components.Layout.Teacher
+
+@layout TeacherMainLayout
+
+<div class="pd-5 bg-primary-01 main-container pos-rel">
+    <div class="mgb-10 flex flex-spacebetween">
+        <h2>My Classes</h2>
+    </div>
+
+    <div class="flow flex-start flex">
+        <div>
+            <ClassCard Imgsrc="icons/task.svg" Class="JSS 1 A" StudentCount="35" TeacherName="Mr John"
+                       OnClick="ViewStudents" />
+        </div>
+        <div>
+            <ClassCard Imgsrc="icons/task.svg" Class="JSS 1 A" StudentCount="35" TeacherName="Mr John"
+                       OnClick="ViewStudents" />
+        </div>
+        <div>
+            <ClassCard Imgsrc="icons/task.svg" Class="JSS 1 A" StudentCount="35" TeacherName="Mr John"
+                       OnClick="ViewStudents" />
+        </div>
+        <div>
+            <ClassCard Imgsrc="icons/task.svg" Class="JSS 1 A" StudentCount="35" TeacherName="Mr John"
+                       OnClick="ViewStudents" />
+        </div>
+        <div>
+            <ClassCard Imgsrc="icons/task.svg" Class="JSS 1 A" StudentCount="35" TeacherName="Mr John"
+                       OnClick="ViewStudents" />
+        </div>
+        <div>
+            <ClassCard Imgsrc="icons/task.svg" Class="JSS 1 A" StudentCount="35" TeacherName="Mr John"
+                       OnClick="ViewStudents" />
+        </div>
+    </div>
+
+    <div class="row responsive col-3 corner-3 bg-primary-01 pd">
+        <div class="miwx-25">
+            <StatCard Title="4" Subtitle="Classes Assigned" ImgPng="icons/chart.svg" />
+        </div>
+        <div class="miwx-25">
+            <StatCard Title="149" Subtitle="Total Students" ImgPng="icons/reportcard.svg" />
+        </div>
+        <div class="miwx-25">
+            <StatCard Title="4" Subtitle="Subjects Taught" ImgPng="icons/task.svg" />
+        </div>
+    </div>
+</div>
+
+@if (viewStudents)
+{
+    <div class="formpage">
+        <ViewStudent OnCancel="CancelViewStudents" />
+    </div>
+}
+
+@code {
+    private bool viewStudents = false;
+
+    private void ViewStudents()
+    {
+        viewStudents = true;
+    }
+
+    private void CancelViewStudents()
+    {
+        viewStudents = false;
+    }
+}

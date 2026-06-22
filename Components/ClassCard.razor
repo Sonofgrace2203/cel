@@ -1,19 +1,28 @@
-<div class="pd-10 bdb bdb-primary scroll-x">
-    <table class="wf fw-bold  scroll">
-        <tr class="scroll">
-            <td class="wx-5">@Class</td>
-            <td class="pdr-10">@StudentNo</td>
-            <td>
-                <button class="cl-primary bg-transparent bd-none" @onclick="HandleClick">@BtnText</button>
-            </td>
-        </tr>
-    </table>
+@page "/mysubjects"
+
+<div class="wx-3 corner-2 bg-card bd pd mgb-10 mgr-10">
+    <div class="pd-10 flex flex-spacebetween">
+        <div class="mgr-10">
+            <img src="@Imgsrc" alt="" class="wx-04 hx-04">
+        </div>
+        <div>
+            <h2 class="mg-0">@Class</h2>
+            <p class="fsz-20 mgt-2">@StudentCount Students</p>
+
+            <div class="">
+                <h5 class="mgb-3 fsz-18">Class Teacher</h5>
+                <p class="mg-0 fsz-20">@TeacherName</p>
+            </div>
+        </div>
+    </div>
+    <button class="bg-primary corner-2 cl-white wf pd-5 bd-none fsz-20" @onclick="HandleClick">Open Class</button>
 </div>
 
 @code {
+    [Parameter] public string Imgsrc { get; set; } = "";
     [Parameter] public string Class { get; set; } = "";
-    [Parameter] public string StudentNo { get; set; } = "";
-    [Parameter] public string BtnText { get; set; } = "";
+    [Parameter] public int StudentCount { get; set; }
+    [Parameter] public string TeacherName { get; set; } = "";
     [Parameter] public EventCallback OnClick { get; set; }
 
     public async Task HandleClick()
