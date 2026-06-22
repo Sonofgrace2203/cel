@@ -1,5 +1,7 @@
 @page "/"
 @using Components.Layout.Admin
+@using cel.Components.Pages.forms
+@inject NavigationManager Nav
 
 @layout AdminMainLayout
 
@@ -84,40 +86,112 @@
             <h3>Quick Actions</h3>
             <hr />
             <div class="pd">
-                <Button BtnIcon="➕" BtnText="Add Student" OnClick="AddStudent" />
-                <Button BtnIcon="➕" BtnText="Add Teacher" OnClick="AddTeacher" />
-                <Button BtnIcon="➕" BtnText="Create Class" OnClick="CreateClass" />
-                <Button BtnIcon="➕" BtnText="Create Subject" OnClick="CreateSubject" />
+                <Button BtnIcon="➕" BtnText="Add Student" OnClick="ShowStudentForm" />
+                <Button BtnIcon="➕" BtnText="Add Teacher" OnClick="ShowTeacherForm" />
+                <Button BtnIcon="➕" BtnText="Create Class" OnClick="ShowClassForm" />
+                <Button BtnIcon="➕" BtnText="Create Subject" OnClick="ShowSubjectForm" />
                 <Button BtnIcon="➕" BtnText="Approve Results" OnClick="ApproveResults" />
             </div>
         </div>
     </div>
 </div>
 
+@if (showStudentForm)
+{
+    <div class="formpage">
+        <Studentform OnCancel="CancelStudentForm" OnAdd="AddStudentForm" />
+    </div>
+}
+
+@if (showTeacherForm)
+{
+    <div class="formpage">
+        <Teacherform OnCancel="CancelTeacherForm" OnAdd="AddTeacherForm" />
+    </div>
+}
+
+@if (showClassForm)
+{
+    <div class="formpage">
+        <Classform OnCancel="CancelClassForm" OnAdd="AddClassForm" />
+    </div>
+}
+
+@if (showSubjectForm)
+{
+    <div class="formpage">
+        <Subjectform OnCancel="CancelSubjectForm" OnAdd="AddSubjectForm" />
+    </div>
+}
+
 @code {
+    private bool showStudentForm = false;
+    private bool showTeacherForm = false;
+    private bool showClassForm = false;
+    private bool showSubjectForm = false;
 
-    private void AddStudent()
+    private void ShowStudentForm()
     {
-
+        showStudentForm = !showStudentForm;
     }
 
-    private void AddTeacher()
+    private void CancelStudentForm()
     {
-
+        showStudentForm = false;
     }
 
-    private void CreateClass()
+    private void AddStudentForm()
     {
-
+        showStudentForm = false;
     }
 
-    private void CreateSubject()
+    private void ShowTeacherForm()
     {
+        showTeacherForm = !showTeacherForm;
+    }
 
+    private void CancelTeacherForm()
+    {
+        showTeacherForm = false;
+    }
+
+    private void AddTeacherForm()
+    {
+        showTeacherForm = false;
+    }
+
+    private void ShowClassForm()
+    {
+        showClassForm = !showClassForm;
+    }
+
+    private void CancelClassForm()
+    {
+        showClassForm = false;
+    }
+
+    private void AddClassForm()
+    {
+        showClassForm = false;
+    }
+
+    private void ShowSubjectForm()
+    {
+        showSubjectForm = !showSubjectForm;
+    }
+
+    private void CancelSubjectForm()
+    {
+        showSubjectForm = false;
+    }
+
+    private void AddSubjectForm()
+    {
+        showSubjectForm = false;
     }
 
     private void ApproveResults()
     {
-
+        Nav.NavigateTo("/approve");
     }
 }

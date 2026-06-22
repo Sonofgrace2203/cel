@@ -1,9 +1,9 @@
 html:not(.dark-theme):root {
-  --primary-background-color: 37, 95, 235 !important;
-  --success-background-color: 22, 163, 74 !important;
-  --warning-background-color: 245, 158, 11 !important;
-  --error-background-color: 239, 68, 68 !important;
-  --gray-background-color: 248, 250, 252 !important;
+    --primary-background-color: 37, 95, 235 !important;
+    --success-background-color: 22, 163, 74 !important;
+    --warning-background-color: 245, 158, 11 !important;
+    --error-background-color: 239, 68, 68 !important;
+    --gray-background-color: 248, 250, 252 !important;
 }
 
 .pagbutton:hover {
@@ -37,6 +37,7 @@ html:not(.dark-theme):root {
     transition: 0.3s ease-in-out;
     color: white;
 }
+
 .actbtn:focus {
     background: rgb(var(--primary-background-color));
     padding: 10px;
@@ -57,7 +58,7 @@ button {
     background: rgb(255, 255, 255, 0.5);
     padding: 20px;
     transition: 0.3s ease-out;
-    border-top: 3px solid rgb(22, 163, 74) ;
+    border-top: 3px solid rgb(22, 163, 74);
 }
 
 .buttonani:hover {
@@ -81,4 +82,27 @@ button {
     justify-content: center;
     width: 100%;
     height: 100vh;
+}
+
+.settingsbtn:hover {
+    background-color: rgb(var(--primary-background-color));
+    color: rgb(var(--gray-background-color));
+    border-radius: 10px;
+    transition: 0.3s ease-out;
+}
+
+.settingsbtn:focus {
+    background-color: rgb(var(--primary-background-color));
+    color: rgb(var(--gray-background-color));
+    border-radius: 10px;
+    transition: 0.3s ease-out;
+}
+
+@media (min-width: 200px) {
+
+}
+
+
+@media (min-width: 760px) and (max-width: 1200px) {
+    
 }

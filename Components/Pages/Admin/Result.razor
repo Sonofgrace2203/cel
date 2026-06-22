@@ -1,10 +1,3 @@
-@page "/result"
-@using Components.Layout.Admin
-@inject NavigationManager Nav
-
-@layout AdminMainLayout
-
-
 <div class="bg-white wx-8 pd-3 pos-rel">
     <button class="pd-3 mdi mdi-cancel pos-abs r-0 t-0 bd-none fsz-30 fw-bold" @onclick="HandleCancel"></button>
     <h3>Send Result to Parent / Guardian</h3>
@@ -54,40 +47,40 @@
     <div class="mgt-10">
         <div class="flex flex-spacebetween">
             <h3 class="mg-0">Attach PDF</h3>
-            <button class="pdl-5 pdr-5 pdt-2 pdb-2 bg-primary cl-white bd-none corner-1"
-                    @onclick="Preview">Preview Result</button>
-        </div>
-        <hr />
-        <div class="pd-5 corner-3 bg-primary-01 flex flex-spacebetween">
-            <div class="flex">
-                <div class="fsz-40 flex align-items mgt-8">
-                    <i class="mdi mdi-file mgr-3 cl-primary"></i>
-                </div>
-                <div>
-                    <h3>Ahmed_Musa_Result.pdf</h3>
-                    <p>(245 MB)</p>
-                </div>
+            <button class="pdl-5 pdr-5 pdt-2 pdb-2 bg-primary cl-white bd-none corner-1" @onclick="Preview">Preview
+                Result</button>
             </div>
-
-            <div class="flex align-center mgt-5 fsz-17">
+            <hr />
+            <div class="pd-5 corner-3 bg-primary-01 flex flex-spacebetween">
                 <div class="flex">
-                    <p class="10px mgr-5">245kb</p>
-                    <i class="mdi mdi-cancel cl-fatal mgt-6"></i>
+                    <div class="fsz-40 flex align-items mgt-8">
+                        <i class="mdi mdi-file mgr-3 cl-primary"></i>
+                    </div>
+                    <div>
+                        <h3>Ahmed_Musa_Result.pdf</h3>
+                        <p>(245 MB)</p>
+                    </div>
+                </div>
+
+                <div class="flex align-center mgt-5 fsz-17">
+                    <div class="flex">
+                        <p class="10px mgr-5">245kb</p>
+                        <i class="mdi mdi-cancel cl-fatal mgt-6"></i>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+        <div class="mgt-5">
+            <button class="pd-3 wf bg-success fsz-25 bd-none" @onclick="HandleWhatsAppSend">
+                <i class="cl-white mdi mdi-whatsapp"></i>
+                Send via Whatsapp
+            </button>
+        </div>
     </div>
 
-
-    <div class="mgt-5">
-        <button class="pd-3 wf bg-success fsz-25 bd-none">
-            <i class="cl-white mdi mdi-whatsapp"></i>
-            Send via Whatsapp
-        </button>
-    </div>
-</div>
-
- @if (previewResult)
+    @if (previewResult)
     {
         <div class="formpage">
             <PdfPreview OnCancel="Cancel" />
@@ -96,9 +89,9 @@
 
 @code {
     [Parameter] public EventCallback OnCancel { get; set; }
-    @* [Parameter] public EventCallback OnPreview { get; set; } *@
+    [Parameter] public EventCallback WhatsAppSend { get; set; }
 
-    private bool previewResult = true;
+    private bool previewResult = false;
 
     private void ShowModal()
     {
@@ -119,4 +112,10 @@
     {
         OnCancel.InvokeAsync();
     }
+
+    private void HandleWhatsAppSend()
+    {
+        WhatsAppSend.InvokeAsync();
+    }
+    
 }

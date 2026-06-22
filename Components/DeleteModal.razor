@@ -1,0 +1,26 @@
+<div class="pd-10 corner-3 bd bg-white wx-4">
+    <div class="text-center">
+        <p class="mgb-20 fsz-20">@ModalText</p>
+        <div class="flex flex-spacearound fw-bold wf">
+            <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bd bg-transparent bg-primary corner-2 fsz-15 mgb-5" @onclick="HandleConfirmDelete">Confirm</button>
+            <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-primary bd-none bd bg-transparent bd-primary corner-2 fsz-15 mgb-5" @onclick="HandleConfirmCancel">Cancel</button>
+        </div>
+    </div>
+</div>
+        
+
+@code {
+    [Parameter] public string ModalText { get; set; } = "";
+    [Parameter] public EventCallback ConfirmDelete { get; set; }
+    [Parameter] public EventCallback ConfirmCancel { get; set; }
+
+    private void HandleConfirmDelete()
+    {
+        ConfirmDelete.InvokeAsync();
+    }
+
+    public void HandleConfirmCancel()
+    {
+        ConfirmDelete.InvokeAsync();
+    }
+}

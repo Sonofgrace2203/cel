@@ -14,8 +14,7 @@
                 <thead class="fw-bold bg-primary-08 cl-white">
                     <tr class="">
                         <td class="pd-5 wx-3">Class</td>
-                        <td class="pd-5 wx-3">Subject</td>
-                        <td class="pd-5 wx-3">Teacher</td>
+                        <td class="pd-5 wx-3">Class Teacher</td>
                         <td class="pd-5 wx-3">Students</td>
                         <td class="pd-5 wx-3">Submitted On</td>
                         <td class="wx-3 pd-5">Action</td>
@@ -23,79 +22,117 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="pd-5 wx-3">JSS 1 A</td>
-                        <td class="pd-5 wx-3">Mathematics</td>
-                        <td class="pd-5 wx-3">Mr Johnson</td>
-                        <td class="pd-5 wx-3">35</td>
-                        <td class="pd-5 wx-3">12 May 2026</td>
-                        <td class="pd-5 wx-3">
-                            <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-content-save cl-success"
-                                    @onclick="Edit"></button>
-                            <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-fatal"
-                                    @onclick="Edit"></button>
-                            <button @onclick="Delete"
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                        <td class="pd-5 wx-3 bdb">35</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        <td class="pd-5 wx-3 bdb">
+                            @if (ifApproveConfirmed)
+                            {
+                                @if (ifApprove)
+                                {
+                                    <button
+                                    class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline  cl-primary-01"
+                                    @onclick="IfApprove"></button>
+                                }
+                                else
+                                {
+                                    @if (ifApprove && ifApproveConfirmed)
+                                    {
+                                        <button
+                                        class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline cl-success"
+                                        @onclick="IfApprove"></button>
+                                    }
+                                    else
+                                    {
+                                        <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline"
+                                                @onclick="IfApprove"></button>
+                                    }
+                                }
+                            }
+
+                            @if (ifRejectConfirmed)
+                            {
+                                @if (ifReject)
+                                {
+
+                                    <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-primary-01"
+                                            @onclick="IfReject"></button>
+                                }
+                                else
+                                {
+                                    @if (ifReject)
+                                    {
+                                        <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-fatal"
+                                                @onclick="IfReject"></button>
+                                    }
+                                    else
+                                    {
+                                        <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-primary-01"
+                                                @onclick="IfReject"></button>
+                                    }
+                                }
+                            }
+
+                            <button @onclick="IfViewResult"
                                     class="fsz-25 bg-transparent bd-none actbtn mdi mdi-eye cl-primary"></button>
                         </td>
                     </tr>
                     <tr>
-                        <td class="pd-5 wx-3">JSS 1 A</td>
-                        <td class="pd-5 wx-3">Mathematics</td>
-                        <td class="pd-5 wx-3">Mr Johnson</td>
-                        <td class="pd-5 wx-3">35</td>
-                        <td class="pd-5 wx-3">12 May 2026</td>
-                        <td class="pd-5 wx-3">
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                        <td class="pd-5 wx-3 bdb">35</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        @* <td class="pd-5 wx-3">
                             <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-content-save cl-success"
                                     @onclick="Edit"></button>
                             <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-fatal"
                                     @onclick="Edit"></button>
                             <button @onclick="Delete"
                                     class="fsz-25 bg-transparent bd-none actbtn mdi mdi-eye cl-primary"></button>
-                        </td>
+                        </td> *@
                     </tr>
                     <tr>
-                        <td class="pd-5 wx-3">JSS 1 A</td>
-                        <td class="pd-5 wx-3">Mathematics</td>
-                        <td class="pd-5 wx-3">Mr Johnson</td>
-                        <td class="pd-5 wx-3">35</td>
-                        <td class="pd-5 wx-3">12 May 2026</td>
-                        <td class="pd-5 wx-3">
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                        <td class="pd-5 wx-3 bdb">35</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        @* <td class="pd-5 wx-3">
                             <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-content-save cl-success"
                                     @onclick="Edit"></button>
                             <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-fatal"
                                     @onclick="Edit"></button>
                             <button @onclick="Delete"
                                     class="fsz-25 bg-transparent bd-none actbtn mdi mdi-eye cl-primary"></button>
-                        </td>
+                        </td> *@
                     </tr>
                     <tr>
-                        <td class="pd-5 wx-3">JSS 1 A</td>
-                        <td class="pd-5 wx-3">Mathematics</td>
-                        <td class="pd-5 wx-3">Mr Johnson</td>
-                        <td class="pd-5 wx-3">35</td>
-                        <td class="pd-5 wx-3">12 May 2026</td>
-                        <td class="pd-5 wx-3">
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                        <td class="pd-5 wx-3 bdb">35</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        @* <td class="pd-5 wx-3">
                             <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-content-save cl-success"
                                     @onclick="Edit"></button>
                             <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-fatal"
                                     @onclick="Edit"></button>
                             <button @onclick="Delete"
                                     class="fsz-25 bg-transparent bd-none actbtn mdi mdi-eye cl-primary"></button>
-                        </td>
+                        </td> *@
                     </tr>
                     <tr>
-                        <td class="pd-5 wx-3">JSS 1 A</td>
-                        <td class="pd-5 wx-3">Mathematics</td>
-                        <td class="pd-5 wx-3">Mr Johnson</td>
-                        <td class="pd-5 wx-3">35</td>
-                        <td class="pd-5 wx-3">12 May 2026</td>
-                        <td class="pd-5 wx-3">
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                        <td class="pd-5 wx-3 bdb">35</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        @* <td class="pd-5 wx-3">
                             <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-content-save cl-success"
-                                    @onclick="Edit"></button>
+                                    @onclick="ApproveResult"></button>
                             <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-fatal"
-                                    @onclick="Edit"></button>
-                            <button @onclick="Delete"
+                                    @onclick="RejectResult"></button>
+                            <button @onclick="ViewResults"
                                     class="fsz-25 bg-transparent bd-none actbtn mdi mdi-eye cl-primary"></button>
-                        </td>
+                        </td> *@
                     </tr>
                 </tbody>
             </table>
@@ -106,23 +143,77 @@
     <Pagination />
 </div>
 
+@if (ifViewResult)
+{
+    <div class="formpage">
+        <ViewResult OnCancel="CancelPreviewResult" />
+    </div>
+}
+
+@if (ifApprove)
+{
+    <div class="formpage">
+        <DeleteModal ModalText="Sure to approve result?" ConfirmDelete="ConfirmApprove" ConfirmCancel="CancelApprove" />
+    </div>
+}
+@if (ifReject)
+{
+    <div class="formpage">
+        <DeleteModal ModalText="Sure to reject result?" ConfirmDelete="ConfirmReject" ConfirmCancel="CancelReject" />
+    </div>
+}
+@* @if (ifViewResult)
+{
+    <div class="formpage">
+        <DeleteModal ModalText="Sure to delete student?" ConfirmDelete="Confirm" ConfirmCancel="Cancel" />
+    </div>
+} *@
+
 @code {
-    private int range1 = 1;
-    private int range5 = 5;
-    private int classNo = 24;
+    private bool ifApprove = false;
+    private bool ifApproveConfirmed = true;
+    private bool ifReject = false;
+    private bool ifRejectConfirmed = true;
+    private bool ifViewResult = false;
 
-    private void CreateSubject()
+    private void IfApprove()
     {
-
+        ifApprove = !ifApprove;
     }
 
-    private void Edit()
+    private void IfReject()
     {
-
+        ifReject = !ifReject;
     }
 
-    private void Delete()
+    private void IfViewResult()
     {
+        ifViewResult = !ifViewResult;
+    }
 
+    private void ConfirmApprove()
+    {
+        ifApprove = false;
+        ifApproveConfirmed = true;
+    }
+
+    private void CancelApprove()
+    {
+        ifApprove = false;
+    }
+
+    private void ConfirmReject()
+    {
+        ifReject = false;
+    }
+
+    private void CancelReject()
+    {
+        ifReject = false;
+    }
+
+    private void CancelPreviewResult()
+    {
+        ifViewResult = false;
     }
 }

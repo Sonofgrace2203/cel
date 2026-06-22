@@ -1,0 +1,82 @@
+@inject NavigationManager Nav
+
+<div class="form">
+    <div class="flex flow pd-5 bg-white">
+        <div class="flex align mgr-5 mgt-30">
+            <div class="hx-2 wx-2 bg-gray round mgb-5">
+            </div>
+        </div>
+        <div class="scroll">
+            <h2 class="pd"> Update School Profile</h2>
+            <div class="grid col-2 bd pd">
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="schoolname" class="mg-2 fsz-15">School Name</label>
+                        <input type="text" placeholder="Enter school name..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">schoolNameError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="schoolmotto" class="mg-2 fsz-15">School Motto</label>
+                        <input type="text" placeholder="Enter school motto..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">schoolmottorror</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="school address" class="mg-2 fsz-15">School Address</label>
+                        <input type="text" placeholder="Enter school address..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">addressError</p>
+                </div>
+                <div class="mg-3 miwx-2">
+                    <div class="stack">
+                        <label for="school email" class="mg-2 fsz-15">School Email</label>
+                        <input type="email" placeholder="Enter school email..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">emailError</p>
+                </div>
+                <div class="mg-3">
+                    <div class="stack">
+                        <label for="phone" class="mg-2 fsz-15">School Phone</label>
+                        <input type="number" placeholder="Enter phone number..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">phoneError</p>
+                </div>
+                <div class="mg-3">
+                    <div class="stack">
+                        <label for="establish" class="mg-2 fsz-15">Establish</label>
+                        <input type="number" placeholder="Enter establishment date..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                    </div>
+                    <p class="mg-2 cl-fatal">establishError</p>
+                </div>
+            </div>
+
+            <div class="wf fsz-20 mgt-10 flex flex-spacebetween flow">
+                <div></div>
+                <div>
+                    <button @onclick="HandleCancel"
+                    class="pdl-10 pdr-10 pdt-5 pdb-5 cl-primary bd-none bd bg-transparent bd-primary corner-2 fsz-20 mgb-5">Cancel</button>
+                    <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bg-primary corner-2 fsz-20" @onclick="HandleAdd">Save
+                        Student</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@code {
+    [Parameter] public EventCallback OnCancel { get; set; }
+    [Parameter] public EventCallback OnAdd { get; set; }
+
+    private void HandleCancel()
+    {
+        OnCancel.InvokeAsync();
+    }
+
+    private void HandleAdd()
+    {
+        OnAdd.InvokeAsync();
+    }
+}

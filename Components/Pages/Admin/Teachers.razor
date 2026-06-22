@@ -16,8 +16,28 @@
 
         <div class="corner-3 bg-white pd-0 bd">
             <div class="flex flex-spacebetween mg-5">
-                <div></div>
-                <input class="pd-5 corner-3 bd wx-3" type="text" placeholder="🔍 Search Students...">
+                <div class="flex">
+                    <label for="class" class="mgr-3 mgt-3">Filter by:</label>
+                    <select name="" id="" class="mgr-3 bd-none bg-primary-01 pd bd">
+                        <option value="Select class...">Select Class</option>
+                        <option value="JSS 1">JSS 1</option>
+                        <option value="JSS 2">JSS 2</option>
+                        <option value="JSS 3">JSS 3</option>
+                        <option value="SS 1">SS 1</option>
+                    </select>
+                    <select name="" id="" class="mgr-3 bd-none bg-primary-01 pd bd">
+                        <option value="Select class...">Select Subject</option>
+                        <option value="JSS 1">Mathematics</option>
+                        <option value="JSS 2">English</option>
+                        <option value="JSS 3">Biology</option>
+                        <option value="SS 1">Chemistry</option>
+                    </select>
+                    <button class="mgr-3 bd-none bg-primary-01 pd bd">Filter</button>
+                </div>
+
+                <div class="">
+                    <input class="pd-5 corner-3 bd wx-3" type="text" placeholder="🔍 Search Students...">
+                </div>
             </div>
 
             <div class="wf scroll-x">
@@ -34,77 +54,77 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">
                                 <div class="round bg-primary-01 wx-1 hx-1"></div>
                             </td>
-                            <td class="pd-5 wx-3">Mr Johnson</td>
-                            <td class="pd-5 wx-3">GM00125</td>
-                            <td class="pd-5 wx-3">JSS 1 A</td>
-                            <td class="pd-5 wx-3">Chemistry, Biology</td>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                            <td class="pd-5 wx-3 bdb">GM00125</td>
+                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                            <td class="pd-5 wx-3 bdb">Chemistry, Biology</td>
+                            <td class="pd-5 wx-3 bdb">
                                 <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
                                         @onclick="Edit"></button>
-                                <button @onclick="Delete"
+                                <button @onclick="ShowDelete"
                                         class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">
                                 <div class="round bg-primary-01 wx-1 hx-1"></div>
                             </td>
-                            <td class="pd-5 wx-3">Mr Johnson</td>
-                            <td class="pd-5 wx-3">GM00125</td>
-                            <td class="pd-5 wx-3">JSS 1 A</td>
-                            <td class="pd-5 wx-3">Chemistry, Biology</td>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                            <td class="pd-5 wx-3 bdb">GM00125</td>
+                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                            <td class="pd-5 wx-3 bdb">Chemistry, Biology</td>
+                            <td class="pd-5 wx-3 bdb">
                                 <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
                                         @onclick="Edit"></button>
-                                <button @onclick="Delete"
+                                <button @onclick="ShowDelete"
                                         class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">
                                 <div class="round bg-primary-01 wx-1 hx-1"></div>
                             </td>
-                            <td class="pd-5 wx-3">Mr Johnson</td>
-                            <td class="pd-5 wx-3">GM00125</td>
-                            <td class="pd-5 wx-3">JSS 1 A</td>
-                            <td class="pd-5 wx-3">Chemistry, Biology</td>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                            <td class="pd-5 wx-3 bdb">GM00125</td>
+                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                            <td class="pd-5 wx-3 bdb">Chemistry, Biology</td>
+                            <td class="pd-5 wx-3 bdb">
                                 <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
                                         @onclick="Edit"></button>
-                                <button @onclick="Delete"
+                                <button @onclick="ShowDelete"
                                         class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">
                                 <div class="round bg-primary-01 wx-1 hx-1"></div>
                             </td>
-                            <td class="pd-5 wx-3">Mr Johnson</td>
-                            <td class="pd-5 wx-3">GM00125</td>
-                            <td class="pd-5 wx-3">JSS 1 A</td>
-                            <td class="pd-5 wx-3">Chemistry, Biology</td>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                            <td class="pd-5 wx-3 bdb">GM00125</td>
+                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                            <td class="pd-5 wx-3 bdb">Chemistry, Biology</td>
+                            <td class="pd-5 wx-3 bdb">
                                 <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
                                         @onclick="Edit"></button>
-                                <button @onclick="Delete"
+                                <button @onclick="ShowDelete"
                                         class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">
                                 <div class="round bg-primary-01 wx-1 hx-1"></div>
                             </td>
-                            <td class="pd-5 wx-3">Mr Johnson</td>
-                            <td class="pd-5 wx-3">GM00125</td>
-                            <td class="pd-5 wx-3">JSS 1 A</td>
-                            <td class="pd-5 wx-3">Chemistry, Biology</td>
-                            <td class="pd-5 wx-3">
+                            <td class="pd-5 wx-3 bdb">Mr Johnson</td>
+                            <td class="pd-5 wx-3 bdb">GM00125</td>
+                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                            <td class="pd-5 wx-3 bdb">Chemistry, Biology</td>
+                            <td class="pd-5 wx-3 bdb">
                                 <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
                                         @onclick="Edit"></button>
-                                <button @onclick="Delete"
+                                <button @onclick="ShowDelete"
                                         class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
                             </td>
                         </tr>
@@ -124,14 +144,19 @@
         </div>
     }
 
+    @if (ifDelete)
+    {
+        <div class="formpage">
+            <DeleteModal ModalText="Sure to delete teacher?" ConfirmDelete="Delete" ConfirmCancel="CancelDelete" />
+        </div>
+    }
+
 
 @code {
     private bool showModal = false;
+    private bool ifDelete = false;
 
-    private int range1 = 1;
-    private int range5 = 5;
-    private int classNo = 24;
-
+    
     private void ShowModal()
     {
         showModal = !showModal;
@@ -149,11 +174,21 @@
 
     private void Edit()
     {
+        showModal = true;
+    }
 
+    private void ShowDelete()
+    {
+        ifDelete = !ifDelete;
     }
 
     private void Delete()
     {
+        ifDelete = false;
+    }
 
+    private void CancelDelete()
+    {
+        ifDelete = false;
     }
 }

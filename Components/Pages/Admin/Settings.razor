@@ -1,0 +1,239 @@
+@page "/settings"
+@using Components.Layout.Admin
+@using cel.Components.Pages.forms
+@inject NavigationManager Nav
+
+@layout AdminMainLayout
+
+
+<div class="pd-5 bg-primary-01 main-container">
+    <div class="mgb-10 flex flex-spacebetween">
+        <div>
+            <h2>Settings</h2>
+            <p>Manage system settings and preferences</p>
+        </div>
+    </div>
+
+    <div class="flex flex-start flow">
+        <div class="pd-3 corner-2 wx-25 text-center mgr-5">
+            <div class="text-left">
+                <button class="pd cl-primary bg-white corner-2 mgb-5 bg-none bd-none fsz-20 settingsbtn"
+                        @onclick="AcademicSetting">Academic
+                    Settings</button>
+                    <button class="pd cl-primary bg-white corner-2 mgb-5 bg-none bd-none fsz-20 settingsbtn"
+                            @onclick="ResultSetting">Result
+                        Settings</button>
+                        <button class="pd cl-primary bg-white corner-2 mgb-5 bg-none bd-none fsz-20 settingsbtn"
+                                @onclick="SchoolInformation">School
+                            Information</button>
+                            <button class="pd cl-primary bg-white corner-2 mgb-5 bg-none bd-none fsz-20 settingsbtn"
+                                    @onclick="WhatsAppSetting">WhatsApp
+                                Settings</button>
+                                <button class="pd cl-primary bg-white corner-2 mgb-5 bg-none bd-none fsz-20 settingsbtn"
+                                        @onclick="SystemSetting">System
+                                    Settings</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                @if (academicSetting)
+                                {
+                                    <div class="wx-3 pd bd bg-white mgb-3">
+                                        <h3>Academic Settings</h3>
+                                        <hr />
+                                        <div class="stack mgb-5">
+                                            <label for="Academic session" class="pd">Current Academic Session</label>
+                                            <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                                                <option value="">Select Academic Session</option>
+                                                <option value="2025/2026">2025/2026</option>
+                                                <option value="2026/2027">2026/2027</option>
+                                                <option value="2027/2028">2027/2028</option>
+                                                <option value="2027/2028">2027/2028</option>
+                                            </select>
+                                        </div>
+                                        <div class="stack mgb-5">
+                                            <label for="Current Term" class="pd">Current Term</label>
+                                            <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                                                <option value="">Select Academic Session</option>
+                                                <option value="First Term<">First Term</option>
+                                                <option value="Second Term">Second Term</option>
+                                                <option value="Third Term">Third Term</option>
+                                            </select>
+                                        </div>
+                                        <div class="stack mgb-5">
+                                            <label for="Term Begin" class="pd">Next Term Begins</label>
+                                            <div class="mg-0 pd-5 bd corner-2 fsz-18">
+                                                <i class="mdi mdi-calendar-outline fsz-20 mgr-3"></i>
+                                                <input type="date" class="bg-none bd-none fsz-20" />
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="pd bd bd-primary cl-primary bg-white corner-2 mgb-5 mgt-3 wf bg-none bd-none fsz-20 settingsbtn">Update
+                                            Academic Settings</button>
+                                        </div>
+                                    }
+                                    else if (resultSetting)
+                                    {
+                                        <div>
+                                            <div class="wx-3 pd bd bg-white mgb-3">
+                                                <h3>Result Settings</h3>
+                                                <hr />
+                                                <div class="flex mgb-2">
+                                                    <input type="checkbox" class="fsz-20 mgr-3" />
+                                                    <p>Auto Generate Session</p>
+                                                </div>
+                                                <div class="flex mgb-2">
+                                                    <input type="checkbox" class="fsz-20 mgr-3" />
+                                                    <p>Auto Summarize Report (PDF)</p>
+                                                </div>
+                                                <div class="flex mgb-2">
+                                                    <input type="checkbox" class="fsz-20 mgr-3" />
+                                                    <p>Enable WhatsApp Distribution</p>
+                                                </div>
+                                                <div class="flex mgb-2">
+                                                    <input type="checkbox" class="fsz-20 mgr-3" />
+                                                    <p>Allow Teacher Score Editing</p>
+                                                </div>
+                                                <div class="flex mgb-2">
+                                                    <input type="checkbox" class="fsz-20 mgr-3" />
+                                                    <p>Lock Result After Publishing</p>
+                                                </div>
+                                                <button
+                                                    class="pd bd bd-primary cl-primary bg-white corner-2 mgb-5 mgt-3 wf bg-none bd-none fsz-20 settingsbtn">Save
+                                                    Result Settings</button>
+                                                </div>
+                                            </div>
+                                        }
+                                        else if (schoolInformation)
+                                        {
+                                            <div>
+                                                <div class="pd bd bg-white mgb-3">
+                                                    <h3>School Information</h3>
+                                                    <hr />
+                                                    <div class="flex flex-start flow">
+                                                        <div class="mgr-10 mgb-7 bd pd-3">
+                                                            <img src="icons/demoschlogo.png" alt="" class="wx-2 hx-2">
+                                                        </div>
+                                                        <div class="mgr-10 mgb-5">
+                                                            <div class="mgb-5">
+                                                                <h3 class="mg-0">School Name</h3>
+                                                                <p class="mg-0 fsz-20">Greenwood Hign School</p>
+                                                            </div>
+                                                            <div class="mgb-5">
+                                                                <h3 class="mg-0">Motto</h3>
+                                                                <p class="mg-0 fsz-20">Excellence and Dignity</p>
+                                                            </div>
+                                                            <div class="mgb-3">
+                                                                <h3 class="mg-0">Address</h3>
+                                                                <p class="mg-0 fsz-20">No 12, Lawrence road, Lagos</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mgr-10 mgb-5">
+                                                            <div class="mgb-5">
+                                                                <h3 class="mg-0">School Email</h3>
+                                                                <p class="mg-0 fsz-20">school@gmail.com</p>
+                                                            </div>
+                                                            <div class="mgb-5">
+                                                                <h3 class="mg-0">School Phone</h3>
+                                                                <p class="mg-0 fsz-20">+2348023456789</p>
+                                                            </div>
+                                                            <div class="mgb-5">
+                                                                <h3 class="mg-0">Established</h3>
+                                                                <p class="mg-0 fsz-20">2025</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button @onclick="ShowModal"
+                                                        class="pd bd bd-primary cl-primary bg-white corner-2 mgb-5 mgt-3 wf bg-none bd-none fsz-20 settingsbtn">Update
+                                                        School Information</button>
+                                                    </div>
+                                                </div>
+                                            }
+                                        else if (whatsappSetting)
+                                            {
+
+                                            }
+                                            else if (systemSetting)
+                                            {
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if (showModal)
+                                {
+                                    <div class="formpage">
+                                        <SchoolInformationForm OnCancel="Cancel" OnAdd="UpdateSchoolInformation" />
+                                    </div>
+                                }
+              
+
+@code {
+    private bool showModal = false;
+    private bool academicSetting = false;
+    private bool resultSetting = false;
+    private bool schoolInformation = false;
+    private bool whatsappSetting = false;
+    private bool systemSetting = false;
+
+    private void AcademicSetting()
+    {
+        academicSetting = true;
+        resultSetting = false;
+        schoolInformation = false;
+        whatsappSetting = false;
+        systemSetting = false;
+    }
+
+    private void ResultSetting()
+    {
+        academicSetting = false;
+        resultSetting = true;
+        schoolInformation = false;
+        whatsappSetting = false;
+        systemSetting = false;
+    }
+
+    private void SchoolInformation()
+    {
+        academicSetting = false;
+        resultSetting = false;
+        schoolInformation = true;
+        whatsappSetting = false;
+        systemSetting = false;
+    }
+
+    private void WhatsAppSetting()
+    {
+        academicSetting = false;
+        resultSetting = false;
+        schoolInformation = false;
+        whatsappSetting = true;
+        systemSetting = false;
+    }
+
+    private void SystemSetting()
+    {
+        academicSetting = false;
+        resultSetting = false;
+        schoolInformation = false;
+        whatsappSetting = false;
+        systemSetting = true;
+    }
+
+    private void ShowModal()
+    {
+        showModal = !showModal;
+    }
+
+    private void UpdateSchoolInformation()
+    {
+        showModal = false;
+    }
+
+    private void Cancel()
+    {
+        showModal = false;
+    }
+}
