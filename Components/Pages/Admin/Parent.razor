@@ -1,0 +1,212 @@
+@page "/Parents"
+@using Components.Layout.Admin
+@using cel.Components.Pages.forms
+@inject NavigationManager Nav
+
+@layout AdminMainLayout
+
+<div class="pd-5 bg-primary-01 main-container">
+    <div class="mgb-10 flex flex-spacebetween">
+        <h2>Parent</h2>
+        <div class="bg-primary corner-3 flex align-center">
+            <button class="bg-primary cl-white pdt-2 pdb-2 pdl-20 pdr-20 corner-2 bd-none fsz-18 fw-bold buttonani"
+                    @onclick="ShowModal">Add
+                Parent</button>
+            </div>
+        </div>
+
+        <div class="corner-3 bg-white pd-0 bd">
+            <div class="flex flex-spacebetween mg-5">
+                <div class="flex">
+                    <label for="class" class="mgr-3 mgt-3">Filter by:</label>
+                    <select name="" id="" class="mgr-3 bd-none bg-primary-01 pd bd">
+                        <option value="Select class...">Select Class</option>
+                        <option value="JSS 1">JSS 1</option>
+                        <option value="JSS 2">JSS 2</option>
+                        <option value="JSS 3">JSS 3</option>
+                        <option value="SS 1">SS 1</option>
+                    </select>
+                    <select name="" id="" class="mgr-3 bd-none bg-primary-01 pd bd">
+                        <option value="Arm">Select Arm</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                    <button class="mgr-3 bd-none bg-primary-01 pd bd">Filter</button>
+                </div>
+
+                <div class="">
+                    <input class="pd-5 corner-3 bd wx-3" type="text" placeholder="🔍 Search Students...">
+                </div>
+            </div>
+
+            <div class="wf scroll-x">
+                <table class="fsz-20 wf scroll">
+                    <thead class="fw-bold bg-primary-08 cl-white">
+                        <tr class="">
+                            <td class="pd-5 wx-3">Name</td>
+                            <td class="wx-3 pd-5">Address</td>
+                            <td class="wx-3 pd-5">Parent Phone</td>
+                            <td class="wx-3 pd-5">Child(ren)</td>
+                            <td class="wx-3 pd-5">Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">Mr Adebayo</td>
+                            <td class="pd-5 wx-3 bdb">No 13, Allen victor bustop</td>
+                            <td class="pd-5 wx-3 bdb">Adebayo Ruth, Adebayo Damilola</td>
+                            <td class="pd-5 wx-3 bdb">080123456789, 080212345678</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="mgb-5">
+        <Pagination />
+    </div>
+
+    @if (showModal)
+    {
+        <div class="formpage">
+            <Parentform OnCancel="Cancel" OnAdd="AddParent" />
+        </div>
+    }
+
+    @if (ifDelete)
+    {
+        <div class="formpage">
+            <DeleteModal ModalText="Sure to delete student?" ConfirmDelete="Delete" ConfirmCancel="CancelDelete" />
+        </div>
+    }
+
+@code {
+    private bool showModal = false;
+    private bool ifDelete = false;
+
+    private void ShowModal()
+    {
+        showModal = !showModal;
+    }
+
+    private void Cancel()
+    {
+        showModal = false;
+    }
+
+    private void AddParent()
+    {
+        showModal = false;
+    }
+
+    private void ShowDelete()
+    {
+        ifDelete = !ifDelete;
+    }
+
+    private void Delete()
+    {
+        ifDelete = false;
+    }
+
+    private void CancelDelete()
+    {
+        ifDelete = false;
+    }
+}

@@ -1,0 +1,225 @@
+@page "/users"
+@using Components.Layout.Admin
+@using cel.Components.Pages.forms
+
+@layout AdminMainLayout
+
+<div class="pd-5 bg-primary-01 main-container pos-rel">
+    <div class="mgb-10 flex flex-spacebetween">
+        <h2>Create User</h2>
+        <div class="bg-primary corner-3 flex align-center">
+            <button class="bg-primary cl-white pdt-2 pdb-2 pdl-20 pdr-20 corner-2 bd-none fsz-18 fw-bold buttonani"
+                    @onclick="ShowModal">Add
+                User</button>
+            </div>
+        </div>
+
+        <div class="corner-3 bg-white pd-0 bd">
+            <div class="flex flex-spacebetween mg-5">
+                <div></div>
+                <input class="pd-5 corner-3 bd wx-3" type="text" placeholder="🔍 Search users...">
+            </div>
+
+            <div class="wf scroll-x">
+                <table class="fsz-20 wf scroll">
+                    <thead class="fw-bold bg-primary-08 cl-white">
+                        <tr class="">
+                            <td class="pd-5 wx-3">Photo</td>
+                            <td class="wx-3 pd-5">Name</td>
+                            <td class="wx-3 pd-5">Email</td>
+                            <td class="wx-3 pd-5">Role</td>
+                            <td class="wx-3 pd-5">Status</td>
+                            <td class="wx-3 pd-5">Last Login</td>
+                            <td class="wx-3 pd-5">Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="round bg-primary-01 wx-1 hx-1"></div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">John Doe</td>
+                            <td class="pd-5 wx-3 bdb">johndoe@mail.com</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(37, 95, 235, 0.2)" ClColor="rgb(37, 95, 235)" BdColor="rgb(37, 95, 235)" Text="Administrator" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Active" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="text-center">
+                                    <h5 class="mg-0">May 15 2026</h5>
+                                    <em class="mg-0">10:55 AM</em>
+                                </div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                        @onclick="Edit"></button>
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="round bg-primary-01 wx-1 hx-1"></div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">John Doe</td>
+                            <td class="pd-5 wx-3 bdb">johndoe@mail.com</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Teacher" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Active" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="text-center">
+                                    <h5 class="mg-0">May 15 2026</h5>
+                                    <em class="mg-0">10:55 AM</em>
+                                </div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                        @onclick="Edit"></button>
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="round bg-primary-01 wx-1 hx-1"></div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">John Doe</td>
+                            <td class="pd-5 wx-3 bdb">johndoe@mail.com</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Teacher" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Active" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="text-center">
+                                    <h5 class="mg-0">May 15 2026</h5>
+                                    <em class="mg-0">10:55 AM</em>
+                                </div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                        @onclick="Edit"></button>
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="round bg-primary-01 wx-1 hx-1"></div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">John Doe</td>
+                            <td class="pd-5 wx-3 bdb">johndoe@mail.com</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Teacher" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(239, 68, 68, 0.2)" ClColor="rgb(239, 68, 68)" BdColor="rgb(239, 68, 68)" Text="Inactive" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="text-center">
+                                    <h5 class="mg-0">May 15 2026</h5>
+                                    <em class="mg-0">10:55 AM</em>
+                                </div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                        @onclick="Edit"></button>
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="round bg-primary-01 wx-1 hx-1"></div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">John Doe</td>
+                            <td class="pd-5 wx-3 bdb">johndoe@mail.com</td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Teacher" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Active" />
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <div class="text-center">
+                                    <h5 class="mg-0">May 15 2026</h5>
+                                    <em class="mg-0">10:55 AM</em>
+                                </div>
+                            </td>
+                            <td class="pd-5 wx-3 bdb">
+                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                        @onclick="Edit"></button>
+                                <button @onclick="ShowDelete"
+                                        class="fsz-35 bg-transparent bd-none delbutton mdi mdi-delete"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="mgb-5">
+        <Pagination />
+    </div>
+
+    @if (showModal)
+    {
+        <div class="formpage">
+            <Userform OnCancel="Cancel" OnAdd="AddUser" />
+        </div>
+    }
+
+    @if (ifDelete)
+    {
+        <div class="formpage">
+            <DeleteModal ModalText="Sure to delete user?" ConfirmDelete="Delete" ConfirmCancel="CancelDelete" />
+        </div>
+    }
+
+
+@code {
+    private bool showModal = false;
+    private bool ifDelete = false;
+
+    
+    private void ShowModal()
+    {
+        showModal = !showModal;
+    }
+
+    private void Cancel()
+    {
+        showModal = false;
+    }
+
+    private void AddUser()
+    {
+        showModal = false;
+    }
+
+    private void Edit()
+    {
+        showModal = true;
+    }
+
+    private void ShowDelete()
+    {
+        ifDelete = !ifDelete;
+    }
+
+    private void Delete()
+    {
+        ifDelete = false;
+    }
+
+    private void CancelDelete()
+    {
+        ifDelete = false;
+    }
+}

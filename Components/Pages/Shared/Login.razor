@@ -1,0 +1,59 @@
+@page "/"
+@inject NavigationManager Nav
+
+<div class="loginpage">
+    <div class="wx-8 bd pd-5 corner-3 bg-white-07 shadow">
+        <div class="flex flex-center">
+            <img src="icons/demoschlogo.png" alt="" class="wx-1 hx-1">
+            <h2 class="cl-primary">GREENWOOD HIGH SCHOOOL</h2>
+        </div>
+
+        <div class="wf">
+            <div class="flex flex-center">
+                <div class="wx-35">
+                    <h1 class="text-center cl-primary">Examination Result Management System</h1>
+                </div>
+            </div>
+            <p class="text-center">Sign in to your account</p>
+        </div>
+
+        <form action="">
+            <div class="mg-3">
+                <div class="stack">
+                    <label for="email" class="mg-2 fsz-15">Email Address</label>
+                    <input type="email" placeholder="Enter your email..." class="mg-0 pd-5 bd corner-2 fsz-18" />
+                </div>
+                <p class="mg-2 cl-fatal">eemailError</p>
+            </div>
+            <div class="mg-3">
+                <div class="stack">
+                    <label for="password" class="mg-2 fsz-15">Password</label>
+                    <div class="flex flex-spacebetween mg-0 bd pd-1 corner-2 fsz-18">
+                        <input type="password" placeholder="Enter your password.."
+                               class="wf pd-4 bd-none bg-none fsz-18 corner-2 mgr-2" />
+                        <button class="mdi mdi-eye fsz-20 bg-none bd-none pd-5 corner-2"></button>
+                    </div>
+                </div>
+                <p class="mg-2 cl-fatal">passwordError</p>
+            </div>
+        </form>
+
+        <div class="flex flex-spacebetween pd mgt-10">
+            <div class="flex flex-start">
+                <input type="checkbox" class="fsz-20 mgr-3 cl-primary" />
+                <p class="mg-0 pd-0">Remember Me</p>
+            </div>
+
+            <a href="" class="cl-primary">Forgot Password?</a>
+        </div>
+
+        <div class="flex flex-spacebetween pd mgt-10">
+            <button class="pd-5 text-center wf bd-none fsz-18 bg-primary corner-3" @onclick='() => Nav.NavigateTo("/Dashboard")'>SIGN IN</button>
+        </div>
+
+        <p class="text-center pd-5">Having trouble? 
+            <b class="cl-primary">Contact Administrator</b>
+        </p>
+    </div>
+</div>
+
