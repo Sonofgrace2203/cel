@@ -1,17 +1,29 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="bg-primary wx-3 pd-3 navheight">
+    <div class="bg-primary wx-3 pd-3 navheight wvg-6">
+        <a class="navbar-brand" href="">
+            <div class="flex flex-center">
+                <img class="wx-2 hx-2" src="icons/demoschlogo.png" alt="">
+            </div>
+        </a>
         <TeacherNavMenu />
     </div>
 
     <main class="navheight scroll">
-        <div class="top-row px-4 fsz-25 bg-primary-05">
-            <div class="pos-rel mgr-5">
-                <i class="mdi mdi-bell"></i>
-                <div class="round wx-01 hx-01 bg-fatal pos-abs t-0"></div>
+        <div class="top-row px-4 fsz-25 bg-primary-05 flex flex-spacebetween">
+            <div>
+                <button @onclick="HideMenu" class="bg-transparent bd-none">
+                    <i class="mdi mdi-menu fsz-35"></i>
+                </button>
             </div>
-            <p class="fsz-18 fw-bold">Mr John</p>
+            <div class="flex flex-spacebetween">
+                <div class="pos-rel mgr-5 flex flex-center">
+                    <i class="mdi mdi-bell"></i>
+                    <div class="round wx-01 hx-01 bg-fatal pos-abs t-0"></div>
+                </div>
+                <p class="fsz-18 fw-bold">Mr John</p>
+            </div>
         </div>
 
         <article class="content px-4 body-content">
@@ -25,3 +37,12 @@
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+
+@code {
+    private bool hideMenu = false;
+
+    private void HideMenu()
+    {
+        hideMenu = !hideMenu;
+    }
+}

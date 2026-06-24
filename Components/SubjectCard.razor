@@ -1,0 +1,31 @@
+<div class="flex flex-spacebetween flow corner-2 bg-card bd pd mgb-10 mgr-10">
+    <div class="pd-10 flex flex-spacebetween">
+        <div class="mgr-10">
+            <img src="@Imgsrc" alt="" class="wx-04 hx-04 mgb-5">
+        </div>
+        <div>
+            <h2 class="mg-0">@Subject</h2>
+
+            <div class="">
+                <h5 class="mgb-3 fsz-18">Attempted Classes: @ClassNo</h5>
+                <p class="mg-0 fsz-20">Total Students: @TotalStudent</p>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-center pd-10">
+        <button class="bg-primary corner-2 cl-white wf pd-5 bd-none fsz-20" @onclick="HandleClick">Enter Scores</button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Imgsrc { get; set; } = "";
+    [Parameter] public string Subject { get; set; } = "";
+    [Parameter] public int ClassNo { get; set; }
+    [Parameter] public int TotalStudent { get; set; }
+    [Parameter] public EventCallback OnClick { get; set; }
+
+    public async Task HandleClick()
+    {
+        await OnClick.InvokeAsync();
+    }
+}

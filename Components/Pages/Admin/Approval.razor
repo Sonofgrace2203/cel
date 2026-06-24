@@ -14,7 +14,9 @@
                 <thead class="fw-bold bg-primary-08 cl-white">
                     <tr class="">
                         <td class="pd-5 wx-3">Class</td>
-                        <td class="pd-5 wx-3">Class Teacher</td>
+                        <td class="pd-5 wx-3">Subject</td>
+                        <td class="pd-5 wx-3">Exam Type</td>
+                        <td class="pd-5 wx-3">Teacher</td>
                         <td class="pd-5 wx-3">Students</td>
                         <td class="pd-5 wx-3">Submitted On</td>
                         <td class="wx-3 pd-5">Action</td>
@@ -23,6 +25,8 @@
                 <tbody>
                     <tr>
                         <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">Test 1</td>
                         <td class="pd-5 wx-3 bdb">Mr Johnson</td>
                         <td class="pd-5 wx-3 bdb">35</td>
                         <td class="pd-5 wx-3 bdb">12 May 2026</td>
@@ -32,7 +36,7 @@
                                 @if (ifApprove)
                                 {
                                     <button
-                                    class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline  cl-primary-01"
+                                    class="mgr fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline cl-primary-01"
                                     @onclick="IfApprove"></button>
                                 }
                                 else
@@ -40,12 +44,12 @@
                                     @if (ifApprove && ifApproveConfirmed)
                                     {
                                         <button
-                                        class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline cl-success"
+                                        class="mgr fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline cl-success"
                                         @onclick="IfApprove"></button>
                                     }
                                     else
                                     {
-                                        <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline"
+                                        <button class="mgr fsz-25 bg-transparent bd-none actbtn mdi mdi-checkbox-marked-outline"
                                                 @onclick="IfApprove"></button>
                                     }
                                 }
@@ -56,23 +60,26 @@
                                 @if (ifReject)
                                 {
 
-                                    <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-primary-01"
+                                    <button class="mgr fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-primary-01"
                                             @onclick="IfReject"></button>
                                 }
                                 else
                                 {
                                     @if (ifReject)
                                     {
-                                        <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-fatal"
+                                        <button class="mgr fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-fatal"
                                                 @onclick="IfReject"></button>
                                     }
                                     else
                                     {
-                                        <button class="mgr-5 fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-primary-01"
+                                        <button class="mgr fsz-25 bg-transparent bd-none actbtn mdi mdi-cancel cl-primary-01"
                                                 @onclick="IfReject"></button>
                                     }
                                 }
                             }
+
+                            <button @onclick="IfViewExamTypeResult"
+                                    class="fsz-25 bg-transparent bd-none actbtn mdi mdi-file cl-primary"></button>
 
                             <button @onclick="IfViewResult"
                                     class="fsz-25 bg-transparent bd-none actbtn mdi mdi-eye cl-primary"></button>
@@ -80,6 +87,8 @@
                     </tr>
                     <tr>
                         <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">Test 1</td>
                         <td class="pd-5 wx-3 bdb">Mr Johnson</td>
                         <td class="pd-5 wx-3 bdb">35</td>
                         <td class="pd-5 wx-3 bdb">12 May 2026</td>
@@ -94,6 +103,8 @@
                     </tr>
                     <tr>
                         <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">Test 1</td>
                         <td class="pd-5 wx-3 bdb">Mr Johnson</td>
                         <td class="pd-5 wx-3 bdb">35</td>
                         <td class="pd-5 wx-3 bdb">12 May 2026</td>
@@ -108,6 +119,8 @@
                     </tr>
                     <tr>
                         <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">Test 1</td>
                         <td class="pd-5 wx-3 bdb">Mr Johnson</td>
                         <td class="pd-5 wx-3 bdb">35</td>
                         <td class="pd-5 wx-3 bdb">12 May 2026</td>
@@ -122,6 +135,8 @@
                     </tr>
                     <tr>
                         <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">Test 1</td>
                         <td class="pd-5 wx-3 bdb">Mr Johnson</td>
                         <td class="pd-5 wx-3 bdb">35</td>
                         <td class="pd-5 wx-3 bdb">12 May 2026</td>
@@ -150,6 +165,13 @@
     </div>
 }
 
+@if (ifViewExamTypeResult)
+{
+    <div class="formpage">
+        <ViewExamTypeResult OnCancel="CancelExamTypePreviewResult" />
+    </div>
+}
+
 @if (ifApprove)
 {
     <div class="formpage">
@@ -175,6 +197,7 @@
     private bool ifReject = false;
     private bool ifRejectConfirmed = true;
     private bool ifViewResult = false;
+    private bool ifViewExamTypeResult = false;
 
     private void IfApprove()
     {
@@ -189,6 +212,11 @@
     private void IfViewResult()
     {
         ifViewResult = !ifViewResult;
+    }
+
+    private void IfViewExamTypeResult()
+    {
+        ifViewExamTypeResult = !ifViewExamTypeResult;
     }
 
     private void ConfirmApprove()
@@ -215,5 +243,10 @@
     private void CancelPreviewResult()
     {
         ifViewResult = false;
+    }
+
+    private void CancelExamTypePreviewResult()
+    {
+        ifViewExamTypeResult = false;
     }
 }

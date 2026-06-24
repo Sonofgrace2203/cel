@@ -1,0 +1,115 @@
+@page "/tsettings"
+@using Components.Layout.Teacher
+@using cel.Components.Pages.forms
+@inject NavigationManager Nav
+
+@layout TeacherMainLayout
+
+
+<div class="pd-5 bg-primary-01 main-container">
+    <div class="mgb-10 flex flex-spacebetween">
+        <div>
+            <h2>Settings</h2>
+            <p>Manage system settings and preferences</p>
+        </div>
+    </div>
+
+
+
+    <div class="flex flex-start flow mgb-20">
+        <div>
+            <div class="pd bd bg-white mgb-3 mgr-8">
+                <h3>Notification Settings</h3>
+                <hr />
+                <div class="flex mgb-2 pd-5">
+                    <input type="checkbox" class="fsz-20 mgr-8 pd-0" />
+                    <div>
+                        <h3 class="mg-0 pdb-3">Email Notificatiosn</h3>
+                        <p class="mg-0">Auto Generate Session</p>
+                    </div>
+                </div>
+                <div class="flex mgb-2 pd-5">
+                    <input type="checkbox" class="fsz-20 mgr-8 pd-0" />
+                    <div>
+                        <h3 class="mg-0 pdb-3">Email Notificatiosn</h3>
+                        <p class="mg-0">Auto Generate Session</p>
+                    </div>
+                </div>
+                <div class="flex mgb-2 pd-5">
+                    <input type="checkbox" class="fsz-20 mgr-8 pd-0" />
+                    <div>
+                        <h3 class="mg-0 pdb-3">Email Notificatiosn</h3>
+                        <p class="mg-0">Auto Generate Session</p>
+                    </div>
+                </div>
+                <div class="flex mgb-2 pd-5">
+                    <input type="checkbox" class="fsz-20 mgr-8 pd-0" />
+                    <div>
+                        <h3 class="mg-0 pdb-3">Email Notificatiosn</h3>
+                        <p class="mg-0">Auto Generate Session</p>
+                    </div>
+                </div>
+                <div class="flex mgb-2 pd-5">
+                    <input type="checkbox" class="fsz-20 mgr-8 pd-0" />
+                    <div>
+                        <h3 class="mg-0 pdb-3">Email Notificatiosn</h3>
+                        <p class="mg-0">Auto Generate Session</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pd bd bg-white mgb-3">
+            <div class="text-left">
+                <h3>Appearance</h3>
+                <hr />
+                <div class="mg-3 miwx-2">
+                    <div class="stack mgb-5">
+                        <label for="subjectcode" class="mg-2 fsz-15">Theme</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Change Theme</option>
+                            <option value="English">Light</option>
+                            <option value="English">Dark</option>
+                        </select>
+                    </div>
+                    <div class="stack">
+                        <label for="subjectcode" class="mg-2 fsz-15">Language</label>
+                        <select name="" id="" class="mg-0 pd-5 bd corner-2 fsz-18">
+                            <option value="">Change Language</option>
+                            <option value="English">English</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="pd bd bd-primary bg-primary corner-2 mgb-5 mgt-3 bg-none bd-none fsz-20 settingsbtn" @onclick="ShowModal">Save Settings</button>
+</div>
+
+    
+@if (showModal)
+{
+    <div class="formpage">
+        <DeleteModal ModalText="Save settings" ConfirmCancel="Cancel"  ConfirmDelete="ConfirmSaveSettings"/>
+    </div>
+}
+
+              
+@code {
+    private bool showModal = false;
+
+    private void ShowModal()
+    {
+        showModal = !showModal;
+    }
+
+    private void ConfirmSaveSettings()
+    {
+        showModal = false;
+    }
+
+    private void Cancel()
+    {
+        showModal = false;
+    }
+}

@@ -2,11 +2,15 @@
 
 
 <div class="wx-3">
-    <div class="top-row ps-3 navbar navbar-dark">
+    @* <div class="top-row ps-3 navbar navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">cel</a>
+            <a class="navbar-brand" href="">
+                <div class="flex flex-center">
+                    <img class="wx-2 hx-2" src="icons/demoschlogo.png" alt="">
+                </div>
+            </a>
         </div>
-    </div>
+    </div> *@
 
     <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
@@ -94,11 +98,11 @@
 </div>
 
 @if (ifLogout)
-    {
-        <div class="formpage">
-            <DeleteModal ModalText="Confirm to Logout" ConfirmDelete="ConfirmLogout" ConfirmCancel="CancelLogout" />
-        </div>
-    }
+{
+    <div class="formpage">
+        <DeleteModal ModalText="Confirm to Logout" ConfirmDelete="ConfirmLogout" ConfirmCancel="CancelLogout" />
+    </div>
+}
 
 @code {
     private bool ifLogout = false;

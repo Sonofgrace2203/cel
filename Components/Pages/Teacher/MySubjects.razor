@@ -1,0 +1,65 @@
+@page "/mysubjects"
+@using Components.Layout.Teacher
+
+@layout TeacherMainLayout
+
+
+<div class="pd-5 bg-primary-01 main-container pos-rel">
+    <div class="mgb-10 flex flex-spacebetween">
+        <h2>My Classes</h2>
+    </div>
+
+    <div class="row responsive col-3 corner-3 bg-primary-01 pd mgb-10">
+        <div class="miwx-25">
+            <StatCard Title="4" Subtitle="Total Subjects" ImgPng="icons/chart.svg" />
+        </div>
+        <div class="miwx-25">
+            <StatCard Title="9" Subtitle="Classes Assigned" ImgPng="icons/reportcard.svg" />
+        </div>
+        <div class="miwx-25">
+            <StatCard Title="338" Subtitle="Total Students" ImgPng="icons/task.svg" />
+        </div>
+    </div>
+
+    <div class="flow flex-start flex">
+        <div class="wf">
+            <SubjectCard Imgsrc="icons/reportcard.svg" Subject="Mathematics" ClassNo="4" TotalStudent="123" OnClick="EnterScores" />
+        </div>
+        <div class="wf">
+            <SubjectCard Imgsrc="icons/reportcard.svg" Subject="Mathematics" ClassNo="4" TotalStudent="123" OnClick="EnterScores" />
+        </div>
+        <div class="wf">
+            <SubjectCard Imgsrc="icons/reportcard.svg" Subject="Mathematics" ClassNo="4" TotalStudent="123" OnClick="EnterScores" />
+        </div>
+        <div class="wf">
+            <SubjectCard Imgsrc="icons/reportcard.svg" Subject="Mathematics" ClassNo="4" TotalStudent="123" OnClick="EnterScores" />
+        </div>
+        <div class="wf">
+            <SubjectCard Imgsrc="icons/reportcard.svg" Subject="Mathematics" ClassNo="4" TotalStudent="123" OnClick="EnterScores" />
+        </div>
+        <div class="wf">
+            <SubjectCard Imgsrc="icons/reportcard.svg" Subject="Mathematics" ClassNo="4" TotalStudent="123" OnClick="EnterScores" />
+        </div>
+    </div>
+</div>
+
+@if (viewStudents)
+{
+    <div class="formpage">
+        <ViewSubject OnCancel="CancelViewStudents" />
+    </div>
+}
+
+@code {
+    private bool viewStudents = false;
+
+    private void EnterScores()
+    {
+        viewStudents = true;
+    }
+
+    private void CancelViewStudents()
+    {
+        viewStudents = false;
+    }
+}

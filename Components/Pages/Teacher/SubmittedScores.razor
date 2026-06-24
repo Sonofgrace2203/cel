@@ -1,124 +1,162 @@
 @page "/submittedscores"
 @using Components.Layout.Teacher
+@using cel.Components.Pages.Admin
 
 @layout TeacherMainLayout
 
 <div class="pd-5 bg-primary-01 main-container pos-rel">
     <div class="mgb-10 flex flex-spacebetween">
         <h2>Submitted Scores</h2>
+    </div>
+
+    <div class="corner-3 bg-white pd-0 bd">
+        <div class="flex flex-spacebetween mg-5">
+            <div></div>
+            <input class="pd-5 corner-3 bd wx-3" type="text" placeholder="🔍 Search Classes...">
         </div>
 
-        <div class="corner-3 bg-white pd-0 bd">
-            <div class="flex flex-spacebetween mg-5">
-                <div></div>
-                <input class="pd-5 corner-3 bd wx-3" type="text" placeholder="🔍 Search Classes...">
-            </div>
-
-            <div class="wf scroll-x">
-                <table class="fsz-20 wf scroll">
-                    <thead class="fw-bold bg-primary-08 cl-white">
-                        <tr class="">
-                            <td class="pd-5 wx-3">Class</td>
-                            <td class="wx-3 pd-5">Subject</td>
-                            <td class="wx-3 pd-5">Term</td>
-                            <td class="wx-3 pd-5">Submitted On</td>
-                            <td class="wx-3 pd-5">Status</td>
-                            <td class="wx-3 pd-5">Action</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
-                            <td class="pd-5 wx-3 bdb">Mathematics</td>
-                            <td class="pd-5 wx-3 bdb">First Term</td>
-                            <td class="pd-5 wx-3 bdb">12 May 2026</td>
-                            <td class="pd-5 wx-3 bdb">
-                                <Badge BgColor="rgb(239, 68, 68, 0.2)" ClColor="rgb(239, 68, 68)" BdColor="rgb(239, 68, 68)" Text="Rejected" />
-                            </td>
-                            <td class="pd-5 wx-3 bdb">
-                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
-                                        @onclick="Edit"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
-                            <td class="pd-5 wx-3 bdb">Mathematics</td>
-                            <td class="pd-5 wx-3 bdb">First Term</td>
-                            <td class="pd-5 wx-3 bdb">12 May 2026</td>
-                            <td class="pd-5 wx-3 bdb">
-                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Confirmed" />
-                            </td>
-                            <td class="pd-5 wx-3 bdb">
-                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
-                                        @onclick="Edit"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
-                            <td class="pd-5 wx-3 bdb">Mathematics</td>
-                            <td class="pd-5 wx-3 bdb">First Term</td>
-                            <td class="pd-5 wx-3 bdb">12 May 2026</td>
-                            <td class="pd-5 wx-3 bdb">
-                                <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)" Text="Confirmed" />
-                            </td>
-                            <td class="pd-5 wx-3 bdb">
-                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
-                                        @onclick="Edit"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
-                            <td class="pd-5 wx-3 bdb">Mathematics</td>
-                            <td class="pd-5 wx-3 bdb">First Term</td>
-                            <td class="pd-5 wx-3 bdb">12 May 2026</td>
-                            <td class="pd-5 wx-3 bdb">
-                                <Badge BgColor="rgb(239, 68, 68, 0.2)" ClColor="rgb(239, 68, 68)" BdColor="rgb(239, 68, 68)" Text="Rejected" />
-                            </td>
-                            <td class="pd-5 wx-3 bdb">
-                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
-                                        @onclick="Edit"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="pd-5 wx-3 bdb">JSS 1 A</td>
-                            <td class="pd-5 wx-3 bdb">Mathematics</td>
-                            <td class="pd-5 wx-3 bdb">First Term</td>
-                            <td class="pd-5 wx-3 bdb">12 May 2026</td>
-                            <td class="pd-5 wx-3 bdb">
-                                <Badge BgColor="rgb(245, 158, 11, 0.2)" ClColor="rgb(245, 158, 11)" BdColor="rgb(245, 158, 11)" Text="Pending" />
-                            </td>
-                            <td class="pd-5 wx-3 bdb">
-                                <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
-                                        @onclick="Edit"></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="wf scroll-x">
+            <table class="fsz-20 wf scroll">
+                <thead class="fw-bold bg-primary-08 cl-white">
+                    <tr class="">
+                        <td class="pd-5 wx-3">Class</td>
+                        <td class="wx-3 pd-5">Subject</td>
+                        <td class="wx-3 pd-5">Term</td>
+                        <td class="wx-3 pd-5">Submitted On</td>
+                        <td class="wx-3 pd-5">Status</td>
+                        <td class="wx-3 pd-5">Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">First Term</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        <td class="pd-5 wx-3 bdb">
+                            <Badge BgColor="rgb(239, 68, 68, 0.2)" ClColor="rgb(239, 68, 68)" BdColor="rgb(239, 68, 68)"
+                                   Text="Rejected" />
+                        </td>
+                        <td class="pd-5 wx-3 bdb">
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                    @onclick="Edit"></button>
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
+                                    @onclick="IfViewExamTypeResult"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">First Term</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        <td class="pd-5 wx-3 bdb">
+                            <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)"
+                                   Text="Confirmed" />
+                        </td>
+                        <td class="pd-5 wx-3 bdb">
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                    @onclick="Edit"></button>
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
+                                    @onclick="IfViewExamTypeResult"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">First Term</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        <td class="pd-5 wx-3 bdb">
+                            <Badge BgColor="rgb(22, 163, 74, 0.2)" ClColor="rgb(22, 163, 74)" BdColor="rgb(22, 163, 74)"
+                                   Text="Confirmed" />
+                        </td>
+                        <td class="pd-5 wx-3 bdb">
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                    @onclick="Edit"></button>
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
+                                    @onclick="IfViewExamTypeResult"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">First Term</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        <td class="pd-5 wx-3 bdb">
+                            <Badge BgColor="rgb(239, 68, 68, 0.2)" ClColor="rgb(239, 68, 68)" BdColor="rgb(239, 68, 68)"
+                                   Text="Rejected" />
+                        </td>
+                        <td class="pd-5 wx-3 bdb">
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                    @onclick="Edit"></button>
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
+                                    @onclick="IfViewExamTypeResult"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pd-5 wx-3 bdb">JSS 1 A</td>
+                        <td class="pd-5 wx-3 bdb">Mathematics</td>
+                        <td class="pd-5 wx-3 bdb">First Term</td>
+                        <td class="pd-5 wx-3 bdb">12 May 2026</td>
+                        <td class="pd-5 wx-3 bdb">
+                            <Badge BgColor="rgb(245, 158, 11, 0.2)" ClColor="rgb(245, 158, 11)"
+                                   BdColor="rgb(245, 158, 11)" Text="Pending" />
+                        </td>
+                        <td class="pd-5 wx-3 bdb">
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-pencil"
+                                    @onclick="Edit"></button>
+                            <button class="mgr-5 fsz-35 bg-transparent bd-none editbutton mdi mdi-eye"
+                                    @onclick="IfViewExamTypeResult"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="mgb-5">
-        <Pagination />
+</div>
+<div class="mgb-5">
+    <Pagination />
+</div>
+
+@if (ifViewExamTypeResult)
+{
+    <div class="formpage">
+        <ViewExamTypeResult OnCancel="CancelExamTypePreviewResult" />
     </div>
+}
+
+@if (ifViewExamTypeResult)
+{
+    <div class="formpage">
+        <EditExamTypeResult OnCancel="CancelEditExamTypePreviewResult" />
+    </div>
+}
 
 @code {
-    private void CreateClass()
-    {
+    private bool ifViewExamTypeResult = false;
+    private bool ifEditExamTypeResult = false;
 
+    private void IfViewExamTypeResult()
+    {
+        ifViewExamTypeResult = !ifViewExamTypeResult;
+    }
+
+    private void IfEditExamTypeResult()
+    {
+        ifEditExamTypeResult = !ifEditExamTypeResult;
+    }
+
+    private void CancelEditExamTypePreviewResult()
+    {
+        ifViewExamTypeResult = false;
+    }
+
+    private void CancelExamTypePreviewResult()
+    {
+        ifViewExamTypeResult = false;
     }
 
     private void Edit()
     {
-
-    }
-
-    private void Delete()
-    {
-
-    }
-
-    private void GoTOScoreEntry()
-    {
-
+        ifViewExamTypeResult = true;
     }
 }
