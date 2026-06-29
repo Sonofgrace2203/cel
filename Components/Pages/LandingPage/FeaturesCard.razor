@@ -1,0 +1,14 @@
+<div class="pd-10 corner-3 bg-card bd mgb-5 mgr-5 benefit miwx-25 mawx-4">
+    <div class="pd corner-3 bd round wx-05 hx-05" style="background: @BgColor;">
+        <img src="@Img" alt="" class="hx-05 wx-05">
+    </div>
+    <h4 class="mgb-3 fsz-20 op-5">@Text1</h4>
+    <p class="mg-0 fsz-17 op-5">@Text2</p>
+</div>
+
+@code {
+    [Parameter] public string Img { get; set; } = "";
+    [Parameter] public string Text1 { get; set; } = "";
+    [Parameter] public string Text2 { get; set; } = "";
+    [Parameter] public string BgColor { get; set; } = "";
+}

@@ -1,0 +1,22 @@
+<div class="corner-3 bg-card bd pd flex mgr-5 mgb-5">
+    <p class="fsz-100 mg-0 mgr-3">"</p>
+    <div>
+        <p class="fsz-15 wx-3">@Text1</p>
+
+            <div>
+                <i class="mdi mdi-star cl-warning fsz-20"></i>
+                <i class="mdi mdi-star cl-warning fsz-20"></i>
+                <i class="mdi mdi-star cl-warning fsz-20"></i>
+                <i class="mdi mdi-star cl-warning fsz-20"></i>
+                <i class="mdi mdi-star cl-warning fsz-20"></i>
+            </div>
+            <p class="fsz-15 mg-0 fw-bold">Pricipal</p>
+            <p class="fsz-12 mg-0 op-5">@Text2</p>
+        </div>
+    </div>
+
+@code {
+    [Parameter] public string Img { get; set; } = "";
+    [Parameter] public string Text1 { get; set; } = "";
+    [Parameter] public string Text2 { get; set; } = "";
+}

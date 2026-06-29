@@ -1,0 +1,18 @@
+<div class="pd bd wx-3 corner-3 mgb-5 mgr-5 bg-card-05 benefit">
+    <div class="pd mgb-5 mgr-5 flex">
+        <div class="fsz-70 mgr-10">
+            @* <i class="mdi mdi-cloud"></i> *@
+            <img src="@Img" alt="" class="hw-07 wx-07">
+        </div>
+        <div class="mgt-3">
+            <h4 class="mg-0 fsz-25">@Text1</h4>
+            <p class="mg-0 fsz-14 op-5">@Text2</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Img { get; set; } = "";
+    [Parameter] public string Text1 { get; set; } = "";
+    [Parameter] public string Text2 { get; set; } = "";
+}

@@ -1,0 +1,61 @@
+@inject IJSRuntime JS
+
+<div class="row responsive mgb-10 bg-white pdl-10 pdr-10 pos-fix t-0 l-0 r-0 z-3 shadow wvg-9">
+    <div class="flex mgb-5">
+        <i class="mdi mdi-cast-education cl-primary fsz-65 mgr-3"></i>
+        <div class="mgt--5">
+            <h1 class="mgb-1 cl-primary">EduSmart</h1>
+            <p class="mg-0">Smarter School Management</p>
+        </div>
+    </div>
+    <div class="flex flex-spacearound pdb-5">
+        <div class="pdl-10 pdr-10 flex fsz-15 mgl-10 mgr-10 flex flex-center bg-primary-01 corner-3">
+            <NavLink class="mgr-15 navlink pd cl-dark" href="#home" style="text-decoration: none;">Home</NavLink>
+            <NavLink class="mgr-15 navlink pd cl-dark" href="#features" style="text-decoration: none;">Features</NavLink>
+            <NavLink class="mgr-15 navlink pd cl-dark wx-1 text-center" href="" style="text-decoration: none;">About Us</NavLink>
+            <NavLink class="mgr-15 navlink pd cl-dark wx-1 text-center" href="#contact" style="text-decoration: none;">Contact Us</NavLink>
+        </div>
+        <div class="hf flex flex-center">
+            <button class="pdt-5 pdb-5 pdl-10 pdr-10 fsz-15 bg-success bd-none corner-2">Request Demo</button>
+        </div>
+    </div>
+</div>
+
+<div class="mgb-5 bg-white pd-5 pdt pos-fix t-0 l-0 r-0 z-3 shadow wvl-9">
+    <div class="flex flex-spacebetween">
+        <div class="flex mgb-5">
+            <i class="mdi mdi-cast-education cl-primary fsz-35 mgr-3"></i>
+            <div class="mgt--5">
+                <h3 class="mgb-1 cl-primary">EduSmart</h3>
+                <p class="mg-0 fsz-15">Smarter School Management</p>
+            </div>
+        </div>
+        <div class="hf">
+            <button class="mdi @(showMenu ? "mdi-cancel" : "mdi-menu") fsz-30 bg-transparent bd-none" @onclick="ShowMenu"></button>
+        </div>
+    </div>
+
+    <div class="slide-in-top">
+        <div class="slide-in-top" style="display: @(showMenu ? "block" : "none");">
+            <div class="bg-white cl-dark">
+                <NavLink class="navlink pd bdb bdb-success block fsz-20 cl-dark" href="#home" style="text-decoration: none;">Home</NavLink>
+                <NavLink class="navlink pd bdb bdb-success block fsz-20 cl-dark" href="#features" style="text-decoration: none;">Features</NavLink>
+                <NavLink class="navlink pd bdb bdb-success block fsz-20 cl-dark" href="" style="text-decoration: none;">About Us</NavLink>
+                <NavLink class="navlink pd bdb bdb-success block fsz-20 cl-dark" href="#contact" style="text-decoration: none;">Contact</NavLink>
+            </div>
+            <div class="pd flex flex-center">
+                <button class="pdt-5 wf pdb-5 pdl-10 pdr-10 fsz-15 bg-success bd-none corner-2">Request Demo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool showMenu = false;
+    public EventCallback OnClick { get; set; }
+
+    private void ShowMenu()
+    {
+        showMenu = !showMenu;
+    }
+}

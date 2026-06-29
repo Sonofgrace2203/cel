@@ -3,7 +3,7 @@
 
 @layout TeacherMainLayout
 
-<div class="pd-5 bg-primary-01 main-container">
+<div class="pd-5 main-container">
     <div class="mgb-10 flex flex-spacebetween">
         <div class="corner-3 bg-white pd-0 bd">
             <div class="flex flex-spacebetween mg-5 align-center">
@@ -197,32 +197,33 @@
     <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-primary bd-none bd bg-transparent bd-primary corner-2 fsz-25 mgb-5">Add Student</button>
     <div>
         <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-primary bd-none bd bg-transparent bd-primary corner-2 fsz-25 mgb-5">Save Draft</button>
-        <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bg-success corner-2 fsz-25">Submit to Approve</button>
+        <button class="pdl-10 pdr-10 pdt-5 pdb-5 cl-white bd-none bg-success corner-2 fsz-25" @onclick="ShowModal">Submit to Approve</button>
     </div>
 </div>
 
-@* @code {
-    private int range1 = 1;
-    private int range5 = 5;
-    private int classNO = 24;
 
-    private void CreateClass()
+@if (showModal)
+{
+    <div class="formpage">
+        <DeleteModal ModalText="Submit Scores" ConfirmCancel="Cancel"  ConfirmDelete="ConfirmSubmission"/>
+    </div>
+}
+
+@code {
+    private bool showModal = false;
+
+    private void ShowModal()
     {
-
+        showModal = !showModal;
     }
 
-    private void Edit()
+    private void ConfirmSubmission()
     {
-
+        showModal = false;
     }
 
-    private void Delete()
+    private void Cancel()
     {
-
+        showModal = false;
     }
-
-    private void GoTOScoreEntry()
-    {
-
-    }
-} *@
+}

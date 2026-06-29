@@ -1,0 +1,68 @@
+<div class="wx-35 bd corner-3 bg-card-05 pricingcard mgb-10 mgt-10">
+    <div class="flex flex-center bg-primary pd-3 corner-t-2">
+        <div class="round bg-card hx-01 wx-01 bd mgr-3"></div>
+        <p class="mg-0 fsz-10">Most Popular</p>
+    </div>
+    <div class="corner-3 pd-3 bg-card-05">
+        <div class="flex pd-3">
+            <div>
+                <img src="@Img" alt="" class="wx-07 hx-07 mgr-5">
+            </div>
+            <div class="mg-0">
+                <h3 class="pd-0 mgt-2 mgb-2">@Title1</h3>
+                <p class="pd-0 mg-0 fsz-12">@Title2</p>
+            </div>
+        </div>
+        <div class="pd-3 pdt-0">
+            <h2 class="cl-primary">Request Quote</h2>
+            <div>
+                <p class="cl-primary fsz-12">@subs</p>
+                <div class="flex mgb-2 fsz-15">
+                    <p class="mg-0 op-5">
+                        <i class="mdi mdi-checkbox-outline mgr-5 cl-success"></i>
+                        @Text1
+                    </p>
+                </div>
+                <div class="flex mgb-2 fsz-15">
+                    <p class="mg-0 op-5">
+                        <i class="mdi mdi-checkbox-outline mgr-5 cl-success"></i>
+                        @Text2
+                    </p>
+                </div>
+                <div class="flex mgb-2 fsz-15">
+                    <p class="mg-0 op-5">
+                        <i class="mdi mdi-checkbox-outline mgr-5 cl-success"></i>
+                        @Text3
+                    </p>
+                </div>
+                <div class="flex mgb-2 fsz-15">
+                    <p class="mg-0 op-5">
+                        <i class="mdi mdi-checkbox-outline mgr-5 cl-success"></i>
+                        @Text4
+                    </p>
+                </div>
+                <div class="flex mgb-2 fsz-15">
+                    <p class="mg-0 op-5">
+                        <i class="mdi mdi-checkbox-outline mgr-5 cl-success"></i>
+                        @Text5
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="pd-3">
+            <button class="bg-primary pd wf bd-none corner-2">Request Demo</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Img { get; set; } = "";
+    [Parameter] public string subs { get; set; } = "";
+    [Parameter] public string Title1 { get; set; } = "";
+    [Parameter] public string Title2 { get; set; } = "";
+    [Parameter] public string Text1 { get; set; } = "";
+    [Parameter] public string Text2 { get; set; } = "";
+    [Parameter] public string Text3 { get; set; } = "";
+    [Parameter] public string Text4 { get; set; } = "";
+    [Parameter] public string Text5 { get; set; } = "";
+}

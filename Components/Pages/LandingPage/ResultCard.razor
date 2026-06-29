@@ -1,0 +1,28 @@
+<div>
+    <div class="pd wx-15 corner-3 mgb-5 mgr-5 text-center">
+        <div class="pos-rel">
+            <div class="wf flex flex-center">
+                <div class="pos-rel">
+                    <div class="round pd wx-07 hx-07 bd bg-card">
+                        <img src="@Img" alt="" class="mgb-3 hx-05 wx-05 mgt-4">
+                    </div>
+                    @* <img src="@Img1" alt="" class="wx-1 pos-abs t-0 mgl-20 wvg-5"> *@
+                </div>
+            </div>
+            <div class="pos-abs b-0 l-0 round wx-03 hx-03 cl-white mgl-5" style="background: @NumBg;">
+                <p class="mgt-2">@Num</p>
+            </div>
+        </div>
+        <h4 class="mgb-3 fsz-17">@Text1</h4>
+        <p class="mg-0 fsz-14 op-5">@Text2</p>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Img { get; set; } = "";
+    [Parameter] public string Img1 { get; set; } = "";
+    [Parameter] public string Text1 { get; set; } = "";
+    [Parameter] public string Text2 { get; set; } = "";
+    [Parameter] public string Num { get; set; } = "";
+    [Parameter] public string NumBg { get; set; } = "";
+}

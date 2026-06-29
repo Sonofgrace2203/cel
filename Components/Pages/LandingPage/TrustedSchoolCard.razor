@@ -1,0 +1,13 @@
+<div class="flex flow">
+    <img src="@Img" alt="" class="hx-04 wx-04 mgr-3 mgt-7">
+    <div class="">
+        <h4 class="mgb-1 fsz-15">@Text1</h4>
+        <p class="mg-0 fsz-12 op-5">@Text2</p>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Img { get; set; } = "";
+    [Parameter] public string Text1 { get; set; } = "";
+    [Parameter] public string Text2 { get; set; } = "";
+}

@@ -12,83 +12,83 @@
         </div>
     </div> *@
 
-    <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+    @* <input type="checkbox" title="Navigation menu" class="navbar-toggler" /> *@
 
-    <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <div class="scroll-y" onclick="document.querySelector('.navbar-toggler').click()">
         <nav class="nav flex-column navadj">
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="Dashboard" Match="NavLinkMatch.All">
                     <span class="bi bi-house-door-fill-nav-menu nav" aria-hidden="true"></span> Dashboard
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3 " @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="students">
                     <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Students
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="teachers">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Teachers
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="parents">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Parents
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="classes">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Classes
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="subjects">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Subjects
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="approve">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Approves
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="results">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Results
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="reports">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Reports
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="users">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Users
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="profile">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Profile
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <NavLink class="nav-link navlink2" href="settings">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Settings
                 </NavLink>
             </div>
 
-            <div class="nav-item px-3">
+            <div class="nav-item px-3" @onclick="HideMenu">
                 <button class="nav-link navlink2" @onclick="ShowLogout">
                     <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Logout
                 </button>
@@ -106,6 +106,13 @@
 
 @code {
     private bool ifLogout = false;
+
+    private bool hideMenu = false;
+
+    private void HideMenu()
+    {
+        hideMenu = !hideMenu;
+    }
 
     private void ShowLogout()
     {

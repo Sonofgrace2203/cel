@@ -1,19 +1,39 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="bg-primary wx-3 pd-3 navheight wvg-6">
-        <a class="navbar-brand" href="">
-            <div class="flex flex-center">
-                <img class="wx-2 hx-2" src="icons/demoschlogo.png" alt="">
+    <div class="scroll bg-primary pos-rel">
+        <div class="bg-primary wx-3 pd-3 navheight @(hideMenu ? "slide-out-left" : "slide-in-left") wvl-5 pos-fix t-0 b-0 l-0 z-3"
+             style="display: @(hideMenu ? "none" : "block");">
+            <div class="">
+                <div class="flex flex-end">
+                    <button class="mdi mdi-cancel fsz-25 bg-transparent bd-none" @onclick="HideMenu"></button>
+                </div>
+                <a class="navbar-brand" href="">
+                    <div class="flex flex-center">
+                        <img class="wx-2 hx-2" src="icons/demoschlogo.png" alt="">
+                    </div>
+                </a>
+                <TeacherNavMenu />
             </div>
-        </a>
-        <TeacherNavMenu />
+        </div>
+
+        <div class="wx-3 pd-3 navheight @(hideMenu ? "slide-out-left" : "slide-in-left") wvg-5"
+             style="display: @(hideMenu ? "none" : "block");">
+            <div class="">
+                <a class="navbar-brand" href="">
+                    <div class="flex flex-center">
+                        <img class="wx-2 hx-2" src="icons/demoschlogo.png" alt="">
+                    </div>
+                </a>
+                <TeacherNavMenu />
+            </div>
+        </div>
     </div>
 
-    <main class="navheight scroll">
+    <main class="navheight scroll bg-primary-01">
         <div class="top-row px-4 fsz-25 bg-primary-05 flex flex-spacebetween">
             <div>
-                <button @onclick="HideMenu" class="bg-transparent bd-none">
+                <button @onclick="ShowMenu" class="bg-transparent bd-none">
                     <i class="mdi mdi-menu fsz-35"></i>
                 </button>
             </div>
@@ -41,8 +61,13 @@
 @code {
     private bool hideMenu = false;
 
-    private void HideMenu()
+    private void ShowMenu()
     {
         hideMenu = !hideMenu;
+    }
+
+    private void HideMenu()
+    {
+        hideMenu = true;
     }
 }
